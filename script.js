@@ -32,13 +32,15 @@ let eats = [
 ];
 
 let drinkButton = document.querySelector(".drink-button");
-let eatButton = doucment.querySelector(".eat-button");
+let eatButton = document.querySelector(".eat-button");
 let buttonBox = document.querySelector(".button-box");
 let cart = document.querySelector(".cart");
+let drinkMenu = document.querySelector(".drink-menu")
+let eatMenu = document.querySelector(".eat-menu")
 
 buttonBox.addEventListener("click", (e) => {
-  if (e.target.classList.contains("drink-button"){
-    ``
-  }) {
-  }else if (e.target.classList.contains("eat-button"))
+  if (e.target.classList.contains("drink-button")){
+		drinkMenu.classList.toggle("top")
+
+  }else if (e.target.classList.contains("eat-button")){}
 });

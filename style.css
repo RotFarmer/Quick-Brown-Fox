@@ -1,0 +1,15 @@
+body{
+    margin:0;
+}
+.nav-bits{
+    display:flex;
+    justify-content: space-between;
+    height:10%;
+}
+.cart{
+    height:75px;
+    width:75px;
+}
+.menu{
+    height:100vh;
+}

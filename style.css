@@ -66,7 +66,7 @@ body {
 .bill-container {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   z-index: 2;
   top: 0;
@@ -74,7 +74,6 @@ body {
 
 .bill {
   position: absolute;
-  height: 50%;
   width: 50%;
   background-color: cornsilk;
   z-index: 3;
@@ -82,4 +81,11 @@ body {
   top: 50%;
   transform: translateX(-50%);
   transform: translateY(-50%);
+}
+
+.bill-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+  border-bottom: 1px solid green;
 }

@@ -39,7 +39,7 @@ let cart = document.querySelector(".cart");
 let drinkMenu = document.querySelector(".drink-menu");
 let eatMenu = document.querySelector(".eat-menu");
 let menu = document.querySelector(".menu");
-let wholePage = document.querySelector(".whole-page")
+let wholePage = document.querySelector(".whole-page");
 
 const drinkMenuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -98,19 +98,38 @@ menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
     let index = e.target.getAttribute("data-index");
     cartItems.push(drinks[index]);
-    console.log(cartItems)
-  }else if(e.target.classList.contains("eat-item")) {
+    console.log(cartItems);
+  } else if (e.target.classList.contains("eat-item")) {
     let index = e.target.getAttribute("data-index");
     cartItems.push(eats[index]);
-    console.log(cartItems)
+    console.log(cartItems);
   }
 });
 
-  cart.addEventListener("click", () =>{
-    let billContainer = document.createElement("div");
-    billContainer.classList.add("bill-container");
-    wholePage.append(billContainer);
-    let bill = document.createElement("div");
-    bill.classList.add("bill");
-    wholePage.append(bill)
+cart.addEventListener("click", () => {
+  let billContainer = document.createElement("div");
+  billContainer.classList.add("bill-container");
+  wholePage.append(billContainer);
+  let bill = document.createElement("div");
+  bill.classList.add("bill");
+  wholePage.append(bill);
+  cartItems.forEach((item) => {
+    let billBox = document.createElement("div");
+    billBox.classList.add("bill-box");
+    let billItem = document.createElement("p");
+    let billPrice = document.createElement("p");
+    billItem.innerText = item.name;
+    billPrice.innerText = item.price;
+    billBox.append(billItem);
+    billBox.append(billPrice);
+    bill.append(billBox);
   });
+  let x = document.createElement("p");
+  x.innerText = "X";
+  x.classList.add("x");
+  bill.append(x);
+  x.addEventListener("click", () => {
+    billContainer.remove();
+    bill.remove();
+  });
+});

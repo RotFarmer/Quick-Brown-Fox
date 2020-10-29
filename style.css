@@ -65,3 +65,14 @@ body {
     background-color: rgb(165, 42, 42, 0.6);
   }
   
+.bill-container{
+    background-color: (0, 0, 0, 0.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+.bill{
+
+}

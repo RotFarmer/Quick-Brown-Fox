@@ -43,7 +43,7 @@ let menu = document.querySelector(".menu");
 const drinkMenuOnLoad = () => {
   drinkMenu.classList.add("top");
   eatMenu.classList.remove("top");
-  drinks.forEach((drink) => {
+  drinks.forEach((drink, index) => {
     let drinkBox = document.createElement("div");
     let drinksName = document.createElement("p");
     drinksName.innerText = drink.name;
@@ -52,7 +52,7 @@ const drinkMenuOnLoad = () => {
     drinkBox.append(drinksName);
     drinkBox.append(drinksPrice);
     drinkBox.classList.add("drink-item");
-      drinkBox.setAttribute("data-index", drink.index);
+    drinkBox.setAttribute("data-index", index);
     drinkMenu.append(drinkBox);
   });
 };
@@ -63,7 +63,7 @@ buttonBox.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-button")) {
     drinkMenu.classList.add("top");
     eatMenu.classList.remove("top");
-    drinks.forEach((drink) => {
+    drinks.forEach((drink, index) => {
       let drinkBox = document.createElement("div");
       let drinksName = document.createElement("p");
       drinksName.innerText = drink.name;
@@ -72,13 +72,13 @@ buttonBox.addEventListener("click", (e) => {
       drinkBox.append(drinksName);
       drinkBox.append(drinksPrice);
       drinkBox.classList.add("drink-item");
-      drinkBox.setAttribute("data-index", drink.index);
+      drinkBox.setAttribute("data-index", index);
       drinkMenu.append(drinkBox);
     });
   } else if (e.target.classList.contains("eat-button")) {
     eatMenu.classList.add("top");
     drinkMenu.classList.remove("top");
-    eats.forEach((eat) => {
+    eats.forEach((eat, index) => {
       let eatBox = document.createElement("div");
       let eatName = document.createElement("p");
       eatName.innerText = eat.name;
@@ -87,7 +87,7 @@ buttonBox.addEventListener("click", (e) => {
       eatBox.append(eatName);
       eatBox.append(eatPrice);
       eatBox.classList.add("eat-item");
-      eatBox.setAttribute("data-index", eat.index);
+      eatBox.setAttribute("data-index", index);
       eatMenu.append(eatBox);
     });
   }
@@ -101,6 +101,11 @@ const findItem = (array, index) => {
 
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
+    let index = drinkBox.getAttribute("data-index");
+    let cartItem = findItem(drinks, index)
+    cartItems.push(cartItem);
+    console.log(cartItems)
+  }else if(e.target.classList.contains("eat-item")) {
     let index = drinkBox.getAttribute("data-index");
     let cartItem = findItem(drinks, index)
     cartItems.push(cartItem);

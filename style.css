@@ -89,3 +89,21 @@ body {
   margin: 15px;
   border-bottom: 1px solid green;
 }
+
+.x {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  right: 0;
+  padding: 2px;
+  background-color: rgb(170, 158, 124);
+  border: 1px solid grey;
+  color: cornsilk;
+}
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+  /* border-top: 1px solid blue; */
+  border-bottom: 2px solid green;
+}

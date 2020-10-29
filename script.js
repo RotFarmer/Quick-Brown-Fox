@@ -125,11 +125,24 @@ cart.addEventListener("click", () => {
     bill.append(billBox);
   });
   let x = document.createElement("p");
-  x.innerText = "X";
+  x.innerText = "x";
   x.classList.add("x");
   bill.append(x);
   x.addEventListener("click", () => {
     billContainer.remove();
     bill.remove();
   });
+  let totalBox = document.createElement("div");
+  totalBox.classList.add("total-box");
+  let total = document.createElement("p");
+  let totalPrice = document.createElement("p");
+  let finalTotal = 0;
+  for (let item of cartItems) {
+    finalTotal += item.price;
+  }
+  total.innerText = "Total:";
+  totalPrice.innerText = `$${finalTotal}.00`;
+  totalBox.append(total);
+  totalBox.append(totalPrice);
+  bill.append(totalBox);
 });

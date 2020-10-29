@@ -66,13 +66,22 @@ body {
   }
   
 .bill-container{
-    background-color: (0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-
+    z-index: 2;
+    top:0; 
 }
 
 .bill{
-
+    position: absolute;
+height: 50%;
+width: 50%;
+background-color: cornsilk;
+z-index: 3;
+left:25%;
+top: 50%;
+transform:translateX(-50%);
+transform:translateY(-50%); 
 }

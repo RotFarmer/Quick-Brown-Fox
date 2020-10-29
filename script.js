@@ -39,7 +39,7 @@ let cart = document.querySelector(".cart");
 let drinkMenu = document.querySelector(".drink-menu");
 let eatMenu = document.querySelector(".eat-menu");
 let menu = document.querySelector(".menu");
-let body = document.body
+let wholePage = document.querySelector(".whole-page")
 
 const drinkMenuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -106,14 +106,11 @@ menu.addEventListener("click", (e) => {
   }
 });
 
-const showCart = () => {
   cart.addEventListener("click", () =>{
     let billContainer = document.createElement("div");
     billContainer.classList.add("bill-container");
-    body.append(billContainer);
+    wholePage.append(billContainer);
     let bill = document.createElement("div");
     bill.classList.add("bill");
-    body.append(bill)
+    wholePage.append(bill)
   });
-};
-showCart();

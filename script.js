@@ -35,29 +35,60 @@ let drinkButton = document.querySelector(".drink-button");
 let eatButton = document.querySelector(".eat-button");
 let buttonBox = document.querySelector(".button-box");
 let cart = document.querySelector(".cart");
-let drinkMenu = document.querySelector(".drink-menu")
-let eatMenu = document.querySelector(".eat-menu")
-let menu = document.querySelector(".menu")
+let drinkMenu = document.querySelector(".drink-menu");
+let eatMenu = document.querySelector(".eat-menu");
+let menu = document.querySelector(".menu");
 
+const drinkMenuOnLoad = () => {
+  drinkMenu.classList.add("top");
+  eatMenu.classList.remove("top");
+  drinks.forEach((drink) => {
+    let drinkBox = document.createElement("div");
+    let drinksName = document.createElement("p");
+    drinksName.innerText = drink.name;
+    let drinksPrice = document.createElement("p");
+    drinksPrice.innerText = drink.price;
+    drinkBox.append(drinksName);
+    drinkBox.append(drinksPrice);
+    drinkBox.classList.add("drink-box");
+    drinkMenu.append(drinkBox);
+  });
+};
+drinkMenuOnLoad();
 buttonBox.addEventListener("click", (e) => {
-  if (e.target.classList.contains("drink-button")){
+  drinkMenu.innerHTML = "";
+  eatMenu.innerHTML = "";
+  if (e.target.classList.contains("drink-button")) {
     drinkMenu.classList.add("top");
     eatMenu.classList.remove("top");
-    drinks.forEach((coffee)=>{
+    drinks.forEach((drink) => {
       let drinkBox = document.createElement("div");
       let drinksName = document.createElement("p");
-      drinksName.innerText = coffee.name;
+      drinksName.innerText = drink.name;
       let drinksPrice = document.createElement("p");
-      drinksPrice.innerText = coffee.price;
+      drinksPrice.innerText = drink.price;
       drinkBox.append(drinksName);
       drinkBox.append(drinksPrice);
-      drinkBox.classList.add("drinkBox")
+      drinkBox.classList.add("menu-item");
       drinkMenu.append(drinkBox);
-    })
-  }else if (e.target.classList.contains("eat-button")){
+    });
+  } else if (e.target.classList.contains("eat-button")) {
     eatMenu.classList.add("top");
     drinkMenu.classList.remove("top");
-  };
-  menu.reset();
+    eats.forEach((eat) => {
+      let eatBox = document.createElement("div");
+      let eatName = document.createElement("p");
+      eatName.innerText = eat.name;
+      let eatPrice = document.createElement("p");
+      eatPrice.innerText = eat.price;
+      eatBox.append(eatName);
+      eatBox.append(eatPrice);
+      eatBox.classList.add("menu-item");
+      eatMenu.append(eatBox);
+    });
+  }
 });
 
+menu.addEventListener("click",(e)=>{
+  if (e.target.classList.contains())
+})

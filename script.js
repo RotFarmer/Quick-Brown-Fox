@@ -101,13 +101,15 @@ const findItem = (array, index) => {
 
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
+    let drinkBox = document.querySelectorAll(".drink-item")
     let index = drinkBox.getAttribute("data-index");
     let cartItem = findItem(drinks, index)
     cartItems.push(cartItem);
     console.log(cartItems)
   }else if(e.target.classList.contains("eat-item")) {
-    let index = drinkBox.getAttribute("data-index");
-    let cartItem = findItem(drinks, index)
+    let eatBox=document.querySelectorAll(".eat-item")
+    let index = eatBox.getAttribute("data-index");
+    let cartItem = findItem(eats, index)
     cartItems.push(cartItem);
     console.log(cartItems)
   }

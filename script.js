@@ -30,6 +30,7 @@ let eats = [
     price: 1,
   },
 ];
+let cartItems = [];
 
 let drinkButton = document.querySelector(".drink-button");
 let eatButton = document.querySelector(".eat-button");
@@ -50,7 +51,8 @@ const drinkMenuOnLoad = () => {
     drinksPrice.innerText = drink.price;
     drinkBox.append(drinksName);
     drinkBox.append(drinksPrice);
-    drinkBox.classList.add("drink-box");
+    drinkBox.classList.add("drink-item");
+      drinkBox.setAttribute("data-index", drink.index);
     drinkMenu.append(drinkBox);
   });
 };
@@ -69,7 +71,8 @@ buttonBox.addEventListener("click", (e) => {
       drinksPrice.innerText = drink.price;
       drinkBox.append(drinksName);
       drinkBox.append(drinksPrice);
-      drinkBox.classList.add("menu-item");
+      drinkBox.classList.add("drink-item");
+      drinkBox.setAttribute("data-index", drink.index);
       drinkMenu.append(drinkBox);
     });
   } else if (e.target.classList.contains("eat-button")) {
@@ -83,12 +86,24 @@ buttonBox.addEventListener("click", (e) => {
       eatPrice.innerText = eat.price;
       eatBox.append(eatName);
       eatBox.append(eatPrice);
-      eatBox.classList.add("menu-item");
+      eatBox.classList.add("eat-item");
+      eatBox.setAttribute("data-index", eat.index);
       eatMenu.append(eatBox);
     });
   }
 });
 
-menu.addEventListener("click",(e)=>{
-  if (e.target.classList.contains())
-})
+const findItem = (array, index) => {
+  return array.find((item) => {
+    return item.index === index;
+  });
+};
+
+menu.addEventListener("click", (e) => {
+  if (e.target.classList.contains("drink-item")) {
+    let index = drinkBox.getAttribute("data-index");
+    let cartItem = findItem(drinks, index)
+    cartItems.push(cartItem);
+    console.log(cartItems)
+  }
+});

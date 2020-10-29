@@ -48,7 +48,7 @@ body {
   border: 1px black solid;
 }
 
-.menu-item {
+.drink-item {
   display: flex;
   justify-content: space-between;
   margin: 15px;
@@ -56,3 +56,12 @@ body {
   border: solid grey 1px;
   background-color: rgb(165, 42, 42, 0.6);
 }
+.eat-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 15px;
+    border: solid grey 1px;
+    background-color: rgb(165, 42, 42, 0.6);
+  }
+  

@@ -107,3 +107,8 @@ body {
   /* border-top: 1px solid blue; */
   border-bottom: 2px solid green;
 }
+
+.payment{
+  display: flex;
+  justify-content: space-between;
+}

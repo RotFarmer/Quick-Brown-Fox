@@ -192,11 +192,40 @@ cart.addEventListener("click", () => {
   for (let item of cartItems) {
     finalTotal += item.price;
   }
-  total.innerText = "Total:";
+  total.innerText = "Subtotal:";
   totalPrice.innerText = `$${finalTotal}.00`;
   totalBox.append(total);
   totalBox.append(totalPrice);
   bill.append(totalBox);
   bill.append(checkoutButton);
   bill.append(clearButton);
+  checkoutButton.addEventListener("click",()=>{
+    bill.innerHTML = ""
+    bill.append(totalBox)
+    let taxText= document.createElement("p")
+    taxText.innerText="tax:"
+    let taxnum = finalTotal*0.06
+    let tax= document.createElement("p")
+    tax.innerText= `$${(taxnum).toFixed(2)}`
+    let taxBox= document.createElement("div")
+    taxBox.classList.add("total-box")
+    let totalText = document.createElement("p")
+    totalText.innerText= "Total:"
+    let addTax = document.createElement("p")
+    addTax.innerText = `$${(finalTotal+taxnum).toFixed(2)}`
+    let finalBox = document.createElement("div")
+    finalBox.classList.add("total-box")
+    taxBox.append(taxText, tax)
+    finalBox.append(totalText, addTax);
+    bill.append(taxBox,finalBox)
+    let paymentOption = document.createElement("div")
+    paymentOption.classList.add("payment")
+    let cash = document.createElement("p")
+    cash.innerText= "pay with cash"
+    let card = document.createElement("p")
+    card.innerText = "pay with card"
+    paymentOption.append(card, cash)
+    bill.append(paymentOption, x)
+  })
 });
+

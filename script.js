@@ -1,33 +1,68 @@
 "use strict";
 
 let drinks = [
-  { name: "coffee", price: 1 },
-  { name: "tea", price: 2 },
-  { name: "coffee", price: 5 },
-  { name: "tea", price: 3 },
-  { name: "coffee", price: 4 },
+  { 
+    name: "coffee", 
+    price: 1,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
+},
+  { 
+    name: "tea", 
+    price: 2 ,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
+  },
+  { 
+    name: "coffee", 
+    price: 5 ,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
+},
+  { 
+    name: "tea", 
+    price: 3 ,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
+  },
+  { 
+    name: "coffee", 
+    price: 4 ,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
+},
 ];
 
 let eats = [
   {
     name: "food",
     price: 1,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
   },
   {
     name: "food",
     price: 1,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
   },
   {
     name: "food",
     price: 1,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
   },
   {
     name: "food",
     price: 1,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
   },
   {
     name: "food",
     price: 1,
+    category: "data doesn't matter",
+    description: "data doesn't matter",
   },
 ];
 let cartItems = [];
@@ -50,6 +85,9 @@ const drinkMenuOnLoad = () => {
     drinksName.innerText = drink.name;
     let drinksPrice = document.createElement("p");
     drinksPrice.innerText = drink.price;
+    let drinksDescription = document.createElement("p");
+    drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+    drinkBox.append(drinksDescription);
     drinkBox.append(drinksName);
     drinkBox.append(drinksPrice);
     drinkBox.classList.add("drink-item");
@@ -70,6 +108,9 @@ buttonBox.addEventListener("click", (e) => {
       drinksName.innerText = drink.name;
       let drinksPrice = document.createElement("p");
       drinksPrice.innerText = drink.price;
+      let drinksDescription = document.createElement("p");
+      drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+      drinkBox.append(drinksDescription);
       drinkBox.append(drinksName);
       drinkBox.append(drinksPrice);
       drinkBox.classList.add("drink-item");
@@ -85,6 +126,9 @@ buttonBox.addEventListener("click", (e) => {
       eatName.innerText = eat.name;
       let eatPrice = document.createElement("p");
       eatPrice.innerText = eat.price;
+      let eatDescription = document.createElement("p");
+      eatDescription.innerText = `${eat.category} , ${eat.description}`;
+      eatBox.append(eatDescription);
       eatBox.append(eatName);
       eatBox.append(eatPrice);
       eatBox.classList.add("eat-item");
@@ -124,6 +168,14 @@ cart.addEventListener("click", () => {
     billBox.append(billPrice);
     bill.append(billBox);
   });
+  let checkoutContainer = document.createElement("div");
+  checkoutContainer.classList.add("checkout-container")
+  let checkoutButton = document.createElement("p");
+  checkoutButton.innerText = "Checkout";
+  checkoutButton.classList.add("checkout-button");
+  let clearButton = document.createElement("p");
+  clearButton.innerText = "Clear Cart";
+  clearButton.classList.add("clear-cart");
   let x = document.createElement("p");
   x.innerText = "x";
   x.classList.add("x");
@@ -145,4 +197,6 @@ cart.addEventListener("click", () => {
   totalBox.append(total);
   totalBox.append(totalPrice);
   bill.append(totalBox);
+  bill.append(checkoutButton);
+  bill.append(clearButton);
 });

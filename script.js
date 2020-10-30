@@ -327,6 +327,13 @@ cart.addEventListener("click", () => {
             billBox.append(billItem);
             billBox.append(billPrice);
             bill.append(billBox);
+          });
+          let snapshot = new FormData(cashForm);
+          let tendered = snapshot.get("tendered");
+          let change = tendered - completeTotal;
+          let changeDue = document.createElement("p");
+          changeDue.innerText = `Your change is $${change}`;
+          bill.append(changeDue);
         })
       }
     });

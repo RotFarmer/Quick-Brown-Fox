@@ -270,6 +270,64 @@ cart.addEventListener("click", () => {
           bill.append(changeDue);
         });
       } else if (e.target.classList.contains("card")) {
+        bill.innerHTML = "";
+        bill.append(x);
+        bill.append(finalBox);
+        let cardForm = document.createElement("form");
+        // 
+        let ccNameText = document.createElement("label");
+        ccNameText.setAttribute("for", "your-name");
+        ccNameText.innerText = "Your Name";
+        let ccName = document.createElement("input");
+        ccName.setAttribute("id", "cc-name")
+        ccName.setAttribute("type", "text");
+        cardForm.append(ccNameText, ccName);
+        // 
+        let ccNumberText = document.createElement("label");
+        ccNumberText.setAttribute("for", "cc-number");
+        ccNumberText.innerText = "Credit Card Number";
+        let ccNumber = document.createElement("input");
+        ccNumber.setAttribute("id", "cc-number")
+        ccNumber.setAttribute("type", "number");
+        cardForm.append(ccNumberText, ccNumber);
+        // 
+        let ccExpirationText = document.createElement("label");
+        ccExpirationText.setAttribute("for", "expiration-date");
+        ccExpirationText.innerText = "Expiration Date";
+        let ccExpiration = document.createElement("input");
+        ccExpiration.setAttribute("id", "cc-expiration")
+        ccExpiration.setAttribute("type", "number")
+        cardForm.append(ccExpirationText, ccExpiration);
+        // 
+        let ccCVVNum = document.createElement("label");
+        ccCVVNum.setAttribute("for", "cvv-number");
+        ccCVVNum.innerText = "CVV Number";
+        let ccCVV = document.createElement("input");
+        ccCVV.setAttribute("id", "cc-cvv")
+        ccCVV.setAttribute("type", "number");
+        cardForm.append(ccCVVNum, ccCVV);
+        // 
+        let cardButton = document.createElement("button");
+        cardButton.innerText = "Pay Now";
+        cardForm.append(cardButton);
+        bill.append(cardForm)
+        // 
+        cardButton.addEventListener("submit", (e)=>{
+          e.preventDefault();
+          bill.innerHTML = "";
+          bill.append(x);
+          bill.append(finalBox);
+          cartItems.forEach((item) => {
+            let billBox = document.createElement("div");
+            billBox.classList.add("bill-box");
+            let billItem = document.createElement("p");
+            let billPrice = document.createElement("p");
+            billItem.innerText = item.name;
+            billPrice.innerText = item.price;
+            billBox.append(billItem);
+            billBox.append(billPrice);
+            bill.append(billBox);
+        })
       }
     });
   });

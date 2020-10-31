@@ -113,8 +113,12 @@ body {
   justify-content: space-between;
 }
 
-@media only screen and (min-width: 768px) {
-  .menu {
+/* @media only screen and (min-width: 768px) {
+  .flex-menu{
     display: flex;
+    flex-grow: .25;
   }
-}
+  .eat-menu, .drink-menu{
+    position: relative;
+  }
+} */

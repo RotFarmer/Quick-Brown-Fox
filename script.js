@@ -71,9 +71,9 @@ let drinkButton = document.querySelector(".drink-button");
 let eatButton = document.querySelector(".eat-button");
 let buttonBox = document.querySelector(".button-box");
 let cart = document.querySelector(".cart");
+let menu = document.querySelector(".menu");
 let drinkMenu = document.querySelector(".drink-menu");
 let eatMenu = document.querySelector(".eat-menu");
-let menu = document.querySelector(".menu");
 let wholePage = document.querySelector(".whole-page");
 
 const drinkMenuOnLoad = () => {
@@ -329,11 +329,11 @@ cart.addEventListener("click", () => {
             bill.append(billBox);
           });
           let snapshot = new FormData(cardForm);
-          let tendered = snapshot.get("tendered");
-          let change = tendered - completeTotal;
-          let changeDue = document.createElement("p");
-          changeDue.innerText = `Your change is $${change}`;
-          bill.append(changeDue);
+          let cardName = snapshot.get("cc-name");
+          let cardNumber = snapshot.get("cc-number");
+          let greeting = document.createElement("p");
+          greeting.innerText = `Thank you ${cardName} for your purchase with card ${cardNumber}`;
+          bill.append(greeting);
         });
       }
     });

@@ -65,24 +65,27 @@ body {
   background-color: rgb(165, 42, 42, 0.6);
 }
 
-.bill-container {
+.cart-popup-container {
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   z-index: 2;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.bill {
-  position: absolute;
+.cart-popup {
+  position: relative;
   width: 50%;
   background-color: cornsilk;
-  z-index: 3;
-  left: 25%;
-  top: 50%;
-  transform: translateX(-50%);
-  transform: translateY(-50%);
+}
+.close-cart-button {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .bill-box {
@@ -141,8 +144,9 @@ body {
   align-items: space-between;
 }
 
-.tendered-input {
+input {
   border-top: none;
+  border-left: none;
   /* border-bottom: green; */
   background-color: cornsilk;
 }
@@ -153,6 +157,9 @@ button {
   border-radius: 10px;
 }
 
+.hide {
+  display: none;
+}
 /* @media only screen and (min-width: 768px) {
   .flex-menu{
     display: flex;

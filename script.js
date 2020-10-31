@@ -250,7 +250,6 @@ cart.addEventListener("click", () => {
           e.preventDefault();
           bill.innerHTML = "";
           bill.append(x);
-          bill.append(finalBox);
           cartItems.forEach((item) => {
             let billBox = document.createElement("div");
             billBox.classList.add("bill-box");
@@ -261,6 +260,7 @@ cart.addEventListener("click", () => {
             billBox.append(billItem);
             billBox.append(billPrice);
             bill.append(billBox);
+            bill.append(finalBox);
           });
           let snapshot = new FormData(cashForm);
           let tendered = snapshot.get("tendered");
@@ -274,45 +274,45 @@ cart.addEventListener("click", () => {
         bill.append(x);
         bill.append(finalBox);
         let cardForm = document.createElement("form");
-        // 
+        //
         let ccNameText = document.createElement("label");
-        ccNameText.setAttribute("for", "your-name");
+        ccNameText.setAttribute("for", "cc-name");
         ccNameText.innerText = "Your Name";
         let ccName = document.createElement("input");
-        ccName.setAttribute("id", "cc-name")
+        ccName.setAttribute("id", "cc-name");
         ccName.setAttribute("type", "text");
         cardForm.append(ccNameText, ccName);
-        // 
+        //
         let ccNumberText = document.createElement("label");
         ccNumberText.setAttribute("for", "cc-number");
         ccNumberText.innerText = "Credit Card Number";
         let ccNumber = document.createElement("input");
-        ccNumber.setAttribute("id", "cc-number")
+        ccNumber.setAttribute("id", "cc-number");
         ccNumber.setAttribute("type", "number");
         cardForm.append(ccNumberText, ccNumber);
-        // 
+        //
         let ccExpirationText = document.createElement("label");
-        ccExpirationText.setAttribute("for", "expiration-date");
+        ccExpirationText.setAttribute("for", "cc-expiration");
         ccExpirationText.innerText = "Expiration Date";
         let ccExpiration = document.createElement("input");
-        ccExpiration.setAttribute("id", "cc-expiration")
-        ccExpiration.setAttribute("type", "number")
+        ccExpiration.setAttribute("id", "cc-expiration");
+        ccExpiration.setAttribute("type", "number");
         cardForm.append(ccExpirationText, ccExpiration);
-        // 
+        //
         let ccCVVNum = document.createElement("label");
-        ccCVVNum.setAttribute("for", "cvv-number");
+        ccCVVNum.setAttribute("for", "cc-cvv");
         ccCVVNum.innerText = "CVV Number";
         let ccCVV = document.createElement("input");
-        ccCVV.setAttribute("id", "cc-cvv")
-        ccCVV.setAttribute("type", "number");
+        ccCVV.setAttribute("id", "cc-cvv");
+        ccCVV.setAttribute("type", "cvv-number");
         cardForm.append(ccCVVNum, ccCVV);
-        // 
+        //
         let cardButton = document.createElement("button");
         cardButton.innerText = "Pay Now";
         cardForm.append(cardButton);
-        bill.append(cardForm)
-        // 
-        cardButton.addEventListener("submit", (e)=>{
+        bill.append(cardForm);
+        //
+        cardButton.addEventListener("submit", (e) => {
           e.preventDefault();
           bill.innerHTML = "";
           bill.append(x);
@@ -328,13 +328,13 @@ cart.addEventListener("click", () => {
             billBox.append(billPrice);
             bill.append(billBox);
           });
-          let snapshot = new FormData(cashForm);
+          let snapshot = new FormData(cardForm);
           let tendered = snapshot.get("tendered");
           let change = tendered - completeTotal;
           let changeDue = document.createElement("p");
           changeDue.innerText = `Your change is $${change}`;
           bill.append(changeDue);
-        })
+        });
       }
     });
   });

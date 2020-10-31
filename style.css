@@ -153,8 +153,12 @@ button {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 768px) {
-  .page {
+/* @media only screen and (min-width: 768px) {
+  .flex-menu{
     display: flex;
+    flex-grow: .25;
   }
-}
+  .eat-menu, .drink-menu{
+    position: relative;
+  }
+} */

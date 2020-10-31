@@ -71,8 +71,8 @@ let drinkButton = document.querySelector(".drink-button");
 let eatButton = document.querySelector(".eat-button");
 let buttonBox = document.querySelector(".button-box");
 let cart = document.querySelector(".cart");
-let menu = document.querySelector(".menu");
 let drinkMenu = document.querySelector(".drink-menu");
+let menu = document.querySelector(".menu");
 let eatMenu = document.querySelector(".eat-menu");
 let wholePage = document.querySelector(".whole-page");
 
@@ -235,15 +235,20 @@ cart.addEventListener("click", () => {
         bill.append(finalBox);
         bill.append(x);
         let cashForm = document.createElement("form");
+        let cashFormDiv = document.createElement("div");
+        cashFormDiv.classList.add("cash-form-container");
         let cashTenderedText = document.createElement("label");
         cashTenderedText.setAttribute("for", "tendered");
-        cashTenderedText.innerText = "Cash Tendered";
+        cashTenderedText.innerText = "Cash Tendered:";
         let cashTendered = document.createElement("input");
         cashTendered.setAttribute("name", "tendered");
         cashTendered.setAttribute("type", "number");
         cashTendered.setAttribute("id", "tendered");
+        cashTendered.classList.add("tendered-input");
         let submitButton = document.createElement("button");
         submitButton.innerText = "Pay Now";
+        cashFormDiv.append(cashTenderedText);
+        cashFormDiv.append(cashTendered);
         cashForm.append(cashTenderedText, cashTendered, submitButton);
         bill.append(cashForm);
         cashForm.addEventListener("submit", (e) => {

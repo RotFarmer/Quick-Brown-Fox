@@ -12,16 +12,31 @@
         <h1>The Quick Brown Fox</h1>
         <img src="/assets/cart.png" alt="cart" class="cart" />
       </header>
-          <div class="button-box">
-            <p class="drink-button nav-buttons">Drink</p>
-            <p class="eat-button nav-buttons">Eat</p>
+      <div class="cart-popup-container hide">
+        <div class="cart-popup">
+          <p>The Quick Brown Fox</p>
+          <button class="close-cart-button">X</button>
+          <div class="cart-items"></div>
+          <div class="totals">
+            <p class="subtotal">Sub Total: $0.00</p>
+            <p class="total">Total: $0.00</p>
           </div>
-        <div class="flex-menu"> 
-          <div class="menu">
-            <div class="eat-menu"></div>
-            <div class="drink-menu"></div>
+          <div class="cart-buttons">
+            <button class="checkout-button">Checkout</button>
+            <button class="clear-cart-button">Clear Cart</button>
           </div>
         </div>
+      </div>
+      <div class="button-box">
+        <p class="drink-button nav-buttons">Drink</p>
+        <p class="eat-button nav-buttons">Eat</p>
+      </div>
+      <!-- <div class="flex-menu"> -->
+      <div class="menu">
+        <div class="eat-menu"></div>
+        <div class="drink-menu"></div>
+      </div>
+      <!-- </div> -->
     </div>
     <script src="script.js"></script>
   </body>

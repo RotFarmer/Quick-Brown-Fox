@@ -85,9 +85,17 @@ let clearCartButton = document.querySelector(".clear-cart-button");
 let subtotal = 0;
 let subtotalParagraph = document.querySelector(".subtotal");
 let totalParagraph = document.querySelector(".total");
-let paymentType = document.querySelector(".payment-type")
-let cashScreen = document.querySelector(".cash-screen")
-let creditScreen= document.querySelector(".credit-screen")
+let paymentType = document.querySelector(".payment-type");
+let cashScreen = document.querySelector(".cash-screen");
+let creditScreen= document.querySelector(".credit-screen");
+let receipt = document.querySelector(".receipt");
+let cashReceipt = document.querySelector(".cash-receipt");
+let creditReceipt = document.querySelector(".credit-receipt");
+let changeDue = document.querySelector(".change-due");
+let ccAccepted = document.querySelector(".cc-accepted")
+let cashForm = document.querySelector(".cash-form")
+let creditForm = document.querySelector(".credit-form")
+let cashTenderedP = document.querySelector(".cash-tendered")
 
 const drinkMenuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -183,7 +191,7 @@ const displayCartItems = () => {
   subtotalParagraph.innerText = `Subtotal: $${subtotal.toFixed(2)}`;
 
   let total = subtotal * 0.06 + subtotal;
-  totalParagraph.innerText = `Total: $${total}`;
+  totalParagraph.innerText = `Total: $${total.toFixed(2)}`;
 };
 
 cart.addEventListener("click", displayCartItems);
@@ -192,6 +200,8 @@ closeCartButton.addEventListener("click", () => {
   cartPopupContainer.classList.add("hide");
   cartButtons.classList.remove("hide")
   paymentType.classList.add("hide")
+  creditScreen.classList.add("hide")
+  cashScreen.classList.add("hide")
 });
 
 clearCartButton.addEventListener("click", () => {
@@ -222,6 +232,29 @@ const creditScreenDisplay = ()=>{
   paymentType.classList.add("hide")
   creditScreen.classList.remove("hide")
 }
+
+cashForm.addEventListener("submit", (event)=>{
+  event.preventDefault()
+  cashScreen.classList.add("hide");
+  cashReceipt.classList.remove("hide");
+  subtotal = 0;
+  cartItems.forEach((item) => {
+    subtotal += item.price;  
+  })
+  let total = subtotal * 1.06;
+  let snapshot = new FormData(cashForm);
+  let cashTendered = snapshot.get("tendered")
+  let change = cashTendered - total;
+  changeDue.innerText = `Change Due:  $${change.toFixed(2)}`;
+  cashTenderedP.innerText = `Cash Tendered: $${cashTendered}`;
+  console.log(cashTendered)
+})
+
+creditForm.addEventListener("submit",(e)=>{
+  e.preventDefault()
+  creditScreen.classList.add("hide");
+})
+
 //   let checkoutContainer = document.createElement("div");
 //   checkoutContainer.classList.add("checkout-container");
 //   let checkoutButton = document.createElement("p");

@@ -76,13 +76,18 @@ let menu = document.querySelector(".menu");
 let eatMenu = document.querySelector(".eat-menu");
 let wholePage = document.querySelector(".whole-page");
 let cartPopupContainer = document.querySelector(".cart-popup-container");
+let cartPopup = document.querySelector(".cart-popup")
 let cartItemsDiv = document.querySelector(".cart-items");
 let closeCartButton = document.querySelector(".close-cart-button");
+let cartButtons = document.querySelector(".cart-buttons")
 let checkoutButton = document.querySelector(".checkout-button");
 let clearCartButton = document.querySelector(".clear-cart-button");
 let subtotal = 0;
 let subtotalParagraph = document.querySelector(".subtotal");
 let totalParagraph = document.querySelector(".total");
+let paymentType = document.querySelector(".payment-type")
+let cashScreen = document.querySelector(".cash-screen")
+let creditScreen= document.querySelector(".credit-screen")
 
 const drinkMenuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -175,7 +180,7 @@ const displayCartItems = () => {
   });
   console.log(subtotal);
 
-  subtotalParagraph.innerText = `Subtotal: $${subtotal}`;
+  subtotalParagraph.innerText = `Subtotal: $${subtotal.toFixed(2)}`;
 
   let total = subtotal * 0.06 + subtotal;
   totalParagraph.innerText = `Total: $${total}`;
@@ -185,6 +190,8 @@ cart.addEventListener("click", displayCartItems);
 
 closeCartButton.addEventListener("click", () => {
   cartPopupContainer.classList.add("hide");
+  cartButtons.classList.remove("hide")
+  paymentType.classList.add("hide")
 });
 
 clearCartButton.addEventListener("click", () => {
@@ -192,10 +199,29 @@ clearCartButton.addEventListener("click", () => {
   displayCartItems();
 });
 
-checkoutButton.addEventListener("click", (e) => {
-  //check with team when we hit checkout new popup, add to current popup
+
+checkoutButton.addEventListener("click", (e)=>{
+    cartButtons.classList.add("hide")
+    paymentType.classList.remove("hide")
 });
 
+paymentType.addEventListener("click",(e)=>{
+  if(e.target.classList.contains("cash")){
+    cashScreenDisplay()
+  }else if(e.target.classList.contains("credit")){
+    creditScreenDisplay()
+  }
+})
+
+const cashScreenDisplay =()=>{
+  paymentType.classList.add("hide")
+  cashScreen.classList.remove("hide");
+
+}
+const creditScreenDisplay = ()=>{
+  paymentType.classList.add("hide")
+  creditScreen.classList.remove("hide")
+}
 //   let checkoutContainer = document.createElement("div");
 //   checkoutContainer.classList.add("checkout-container");
 //   let checkoutButton = document.createElement("p");

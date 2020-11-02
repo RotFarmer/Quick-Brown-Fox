@@ -1,16 +1,40 @@
 * {
   font-family: "Oswald", sans-serif;
 }
-
 body {
   margin: 0;
+}
+.whole-page{
+  background-color: #eae7dc;
+  color: #a9453d;
 }
 .nav-bits {
   display: flex;
   justify-content: space-between;
   height: 10%;
-  background-color: bisque;
+  background-color: #eae7dc;
   align-items: center;
+}
+.logo-div{
+  display: flex;
+  justify-content: flex-start;
+}
+.logo{
+  height: 50px;
+  width: 50px;
+  margin-top: 18px;
+  margin-left: 8px;
+  display: flex;
+}
+.eat-button{
+  margin: 0px;
+}
+.drink-button{
+  margin: 0px;
+}
+.header-text{
+  color: #a9453d;
+  margin-left: 20px;
 }
 .cart {
   height: 25px;
@@ -29,27 +53,28 @@ body {
 }
 .nav-buttons {
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid #a9453d;
   display: flex;
   justify-content: center;
   border-radius: 15px;
   padding: 10px;
-  background-color: rgb(228, 200, 163);
+  padding-bottom: 15px;
+  background-color: #d8c3a5;
   margin-bottom: -10px;
 }
 .drink-menu {
   position: absolute;
-  background-color: burlywood;
+  background-color: #d8c3a5;
   height: 100%;
   width: 100%;
-  border: 1px black solid;
+  border: 1px #a9453d solid;
 }
 .eat-menu {
   position: absolute;
-  background-color: brown;
+  background-color: #d8c3a5;
   height: 100%;
   width: 100%;
-  border: 1px black solid;
+  border: 1px #a9453d solid;
 }
 
 .drink-item {
@@ -57,16 +82,18 @@ body {
   justify-content: space-between;
   margin: 15px;
   padding: 15px;
-  border: solid grey 1px;
-  background-color: rgb(165, 42, 42, 0.6);
+  border-top: dotted #a9453d 2px;
+  border-bottom: dotted #a9453d  2px;
+  background-color: #d8c3a5;
 }
 .eat-item {
   display: flex;
   justify-content: space-between;
   margin: 15px;
   padding: 15px;
-  border: solid grey 1px;
-  background-color: rgb(165, 42, 42, 0.6);
+  border-top: dotted #a9453d  2px;
+  border-bottom: dotted #a9453d  2px;
+  background-color: #d8c3a5;
 }
 
 .cart-popup-container {

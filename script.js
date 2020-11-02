@@ -108,7 +108,7 @@ const menuOnLoad = () => {
     let drinksName = document.createElement("p");
     drinksName.innerText = drink.name;
     let drinksPrice = document.createElement("p");
-    drinksPrice.innerText = drink.price.toFixed(2);
+    drinksPrice.innerText = `$${drink.price.toFixed(2)}`;
     let drinksDescription = document.createElement("p");
     let descriptionBox = document.createElement("div");
     drinksDescription.innerText = `${drink.category} , ${drink.description}`;
@@ -127,7 +127,7 @@ const menuOnLoad = () => {
     let eatName = document.createElement("p");
     eatName.innerText = eat.name;
     let eatPrice = document.createElement("p");
-    eatPrice.innerText = eat.price.toFixed(2);
+    eatPrice.innerText = `$${eat.price.toFixed(2)}`;
     let eatDescription = document.createElement("p");
     let descriptionBox = document.createElement("div")
     eatDescription.innerText = `${eat.category} , ${eat.description}`;

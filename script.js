@@ -84,6 +84,7 @@ let checkoutButton = document.querySelector(".checkout-button");
 let clearCartButton = document.querySelector(".clear-cart-button");
 let subtotal = 0;
 let subtotalParagraph = document.querySelector(".subtotal");
+let taxParagraph = document.querySelector(".tax")
 let totalParagraph = document.querySelector(".total");
 let paymentType = document.querySelector(".payment-type");
 let cashScreen = document.querySelector(".cash-screen");
@@ -96,6 +97,7 @@ let ccAccepted = document.querySelector(".cc-accepted")
 let cashForm = document.querySelector(".cash-form")
 let creditForm = document.querySelector(".credit-form")
 let cashTenderedP = document.querySelector(".cash-tendered")
+let thanks=document.querySelector(".thanks")
 
 const drinkMenuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -189,8 +191,11 @@ const displayCartItems = () => {
   console.log(subtotal);
 
   subtotalParagraph.innerText = `Subtotal: $${subtotal.toFixed(2)}`;
+  let tax = subtotal * 0.06
+  taxParagraph.innerText = `Tax: $${tax.toFixed(2)}`
 
-  let total = subtotal * 0.06 + subtotal;
+
+  let total = subtotal + tax
   totalParagraph.innerText = `Total: $${total.toFixed(2)}`;
 };
 
@@ -202,6 +207,8 @@ closeCartButton.addEventListener("click", () => {
   paymentType.classList.add("hide")
   creditScreen.classList.add("hide")
   cashScreen.classList.add("hide")
+  cashReceipt.classList.add("hide")
+  creditReceipt.classList.add("hide")
 });
 
 clearCartButton.addEventListener("click", () => {
@@ -253,6 +260,12 @@ cashForm.addEventListener("submit", (event)=>{
 creditForm.addEventListener("submit",(e)=>{
   e.preventDefault()
   creditScreen.classList.add("hide");
+  creditReceipt.classList.remove("hide");
+  let creditSnap = new FormData(creditForm);
+  let creditName = creditSnap.get("cc-name");
+  let creditNumber = creditSnap.get("cc-number");
+  let lastFour = creditNumber.slice(-4)
+  thanks.innerText = `Thank you, ${creditName}. for paying with card ending in #${lastFour}`;
 })
 
 //   let checkoutContainer = document.createElement("div");

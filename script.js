@@ -76,30 +76,30 @@ let menu = document.querySelector(".menu");
 let eatMenu = document.querySelector(".eat-menu");
 let wholePage = document.querySelector(".whole-page");
 let cartPopupContainer = document.querySelector(".cart-popup-container");
-let cartPopup = document.querySelector(".cart-popup")
+let cartPopup = document.querySelector(".cart-popup");
 let cartItemsDiv = document.querySelector(".cart-items");
 let closeCartButton = document.querySelector(".close-cart-button");
-let cartButtons = document.querySelector(".cart-buttons")
+let cartButtons = document.querySelector(".cart-buttons");
 let checkoutButton = document.querySelector(".checkout-button");
 let clearCartButton = document.querySelector(".clear-cart-button");
 let subtotal = 0;
 let subtotalParagraph = document.querySelector(".subtotal");
-let taxParagraph = document.querySelector(".tax")
+let taxParagraph = document.querySelector(".tax");
 let totalParagraph = document.querySelector(".total");
 let paymentType = document.querySelector(".payment-type");
 let cashScreen = document.querySelector(".cash-screen");
-let creditScreen= document.querySelector(".credit-screen");
+let creditScreen = document.querySelector(".credit-screen");
 let receipt = document.querySelector(".receipt");
 let cashReceipt = document.querySelector(".cash-receipt");
 let creditReceipt = document.querySelector(".credit-receipt");
 let changeDue = document.querySelector(".change-due");
-let ccAccepted = document.querySelector(".cc-accepted")
-let cashForm = document.querySelector(".cash-form")
-let creditForm = document.querySelector(".credit-form")
-let cashTenderedP = document.querySelector(".cash-tendered")
-let thanks=document.querySelector(".thanks")
+let ccAccepted = document.querySelector(".cc-accepted");
+let cashForm = document.querySelector(".cash-form");
+let creditForm = document.querySelector(".credit-form");
+let cashTenderedP = document.querySelector(".cash-tendered");
+let thanks = document.querySelector(".thanks");
 
-const drinkMenuOnLoad = () => {
+const menuOnLoad = () => {
   drinkMenu.classList.add("top");
   eatMenu.classList.remove("top");
   drinks.forEach((drink, index) => {
@@ -117,8 +117,23 @@ const drinkMenuOnLoad = () => {
     drinkBox.setAttribute("data-index", index);
     drinkMenu.append(drinkBox);
   });
+  eats.forEach((eat, index) => {
+    let eatBox = document.createElement("div");
+    let eatName = document.createElement("p");
+    eatName.innerText = eat.name;
+    let eatPrice = document.createElement("p");
+    eatPrice.innerText = eat.price;
+    let eatDescription = document.createElement("p");
+    eatDescription.innerText = `${eat.category} , ${eat.description}`;
+    eatBox.append(eatDescription);
+    eatBox.append(eatName);
+    eatBox.append(eatPrice);
+    eatBox.classList.add("eat-item");
+    eatBox.setAttribute("data-index", index);
+    eatMenu.append(eatBox);
+  });
 };
-drinkMenuOnLoad();
+menuOnLoad();
 buttonBox.addEventListener("click", (e) => {
   drinkMenu.innerHTML = "";
   eatMenu.innerHTML = "";
@@ -173,6 +188,39 @@ menu.addEventListener("click", (e) => {
   }
 });
 
+const displayCartItemsWithX = () => {
+  cartPopupContainer.classList.remove("hide");
+  subtotal = 0;
+  cartItemsDiv.innerHTML = "";
+  cartItems.forEach((item) => {
+    let billBox = document.createElement("div");
+    billBox.classList.add("bill-box");
+    let billItem = document.createElement("p");
+    let billPrice = document.createElement("p");
+    let removeItem = document.createElement("button");
+    removeItem.innerText = "X";
+    removeItem.classList.add("remove-item");
+    removeItem.addEventListener("click", () => {
+      cartItems.splice(item.index, 1);
+      console.log(cartItems);
+      displayCartItemsWithX();
+    });
+    billItem.innerText = item.name;
+    billPrice.innerText = item.price;
+    billBox.append(billItem, billPrice, removeItem);
+    cartItemsDiv.append(billBox);
+    subtotal += item.price;
+  });
+  console.log(subtotal);
+
+  subtotalParagraph.innerText = `Subtotal: $${subtotal.toFixed(2)}`;
+  let tax = subtotal * 0.06;
+  taxParagraph.innerText = `Tax: $${tax.toFixed(2)}`;
+
+  let total = subtotal + tax;
+  totalParagraph.innerText = `Total: $${total.toFixed(2)}`;
+};
+
 const displayCartItems = () => {
   cartPopupContainer.classList.remove("hide");
   subtotal = 0;
@@ -191,24 +239,23 @@ const displayCartItems = () => {
   console.log(subtotal);
 
   subtotalParagraph.innerText = `Subtotal: $${subtotal.toFixed(2)}`;
-  let tax = subtotal * 0.06
-  taxParagraph.innerText = `Tax: $${tax.toFixed(2)}`
+  let tax = subtotal * 0.06;
+  taxParagraph.innerText = `Tax: $${tax.toFixed(2)}`;
 
-
-  let total = subtotal + tax
+  let total = subtotal + tax;
   totalParagraph.innerText = `Total: $${total.toFixed(2)}`;
 };
 
-cart.addEventListener("click", displayCartItems);
+cart.addEventListener("click", displayCartItemsWithX);
 
 closeCartButton.addEventListener("click", () => {
   cartPopupContainer.classList.add("hide");
-  cartButtons.classList.remove("hide")
-  paymentType.classList.add("hide")
-  creditScreen.classList.add("hide")
-  cashScreen.classList.add("hide")
-  cashReceipt.classList.add("hide")
-  creditReceipt.classList.add("hide")
+  cartButtons.classList.remove("hide");
+  paymentType.classList.add("hide");
+  creditScreen.classList.add("hide");
+  cashScreen.classList.add("hide");
+  cashReceipt.classList.add("hide");
+  creditReceipt.classList.add("hide");
 });
 
 clearCartButton.addEventListener("click", () => {
@@ -216,57 +263,56 @@ clearCartButton.addEventListener("click", () => {
   displayCartItems();
 });
 
-
-checkoutButton.addEventListener("click", (e)=>{
-    cartButtons.classList.add("hide")
-    paymentType.classList.remove("hide")
+checkoutButton.addEventListener("click", (e) => {
+  cartButtons.classList.add("hide");
+  paymentType.classList.remove("hide");
+  displayCartItems();
 });
 
-paymentType.addEventListener("click",(e)=>{
-  if(e.target.classList.contains("cash")){
-    cashScreenDisplay()
-  }else if(e.target.classList.contains("credit")){
-    creditScreenDisplay()
+paymentType.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cash")) {
+    cashScreenDisplay();
+  } else if (e.target.classList.contains("credit")) {
+    creditScreenDisplay();
   }
-})
+});
 
-const cashScreenDisplay =()=>{
-  paymentType.classList.add("hide")
+const cashScreenDisplay = () => {
+  paymentType.classList.add("hide");
   cashScreen.classList.remove("hide");
+};
+const creditScreenDisplay = () => {
+  paymentType.classList.add("hide");
+  creditScreen.classList.remove("hide");
+};
 
-}
-const creditScreenDisplay = ()=>{
-  paymentType.classList.add("hide")
-  creditScreen.classList.remove("hide")
-}
-
-cashForm.addEventListener("submit", (event)=>{
-  event.preventDefault()
+cashForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   cashScreen.classList.add("hide");
   cashReceipt.classList.remove("hide");
   subtotal = 0;
   cartItems.forEach((item) => {
-    subtotal += item.price;  
-  })
+    subtotal += item.price;
+  });
   let total = subtotal * 1.06;
   let snapshot = new FormData(cashForm);
-  let cashTendered = snapshot.get("tendered")
+  let cashTendered = snapshot.get("tendered");
   let change = cashTendered - total;
   changeDue.innerText = `Change Due:  $${change.toFixed(2)}`;
   cashTenderedP.innerText = `Cash Tendered: $${cashTendered}`;
-  console.log(cashTendered)
-})
+  console.log(cashTendered);
+});
 
-creditForm.addEventListener("submit",(e)=>{
-  e.preventDefault()
+creditForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   creditScreen.classList.add("hide");
   creditReceipt.classList.remove("hide");
   let creditSnap = new FormData(creditForm);
   let creditName = creditSnap.get("cc-name");
   let creditNumber = creditSnap.get("cc-number");
-  let lastFour = creditNumber.slice(-4)
+  let lastFour = creditNumber.slice(-4);
   thanks.innerText = `Thank you, ${creditName}. for paying with card ending in #${lastFour}`;
-})
+});
 
 //   let checkoutContainer = document.createElement("div");
 //   checkoutContainer.classList.add("checkout-container");

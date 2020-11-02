@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Quick Brown Fox</title>
     <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="whole-page">
@@ -26,40 +30,40 @@
             <button class="checkout-button">Checkout</button>
             <button class="clear-cart-button">Clear Cart</button>
           </div>
-              <div class="payment-type hide">
-                <p class="cash">cash</p>
-                <p class="credit">credit</p>
-              </div>
-              <div class="cash-screen hide">
-                <form class="cash-form">
-                  <label for="tendered">How much cash was tendered?</label>
-                  <input type="number" id="tendered" name="tendered" step="any">
-                  <button>PAY NOW!</button>
-                </form>
-              </div>
-              <div class="credit-screen hide">
-                <form class="credit-form">
-                  <label for="cc-name">Full Name:</label>
-                  <input type="text" id="cc-name" name="cc-name">
-                  <label for="cc-number">Credit Card Number:</label>
-                  <input type="text" id="cc-number" name="cc-number">
-                  <label for="cc-expiration">Expiration Date:</label>
-                  <input type="text" id="cc-expiration" name="cc-expiration"> 
-                  <label for="cc-cvv">CVV:</label>
-                  <input type="text" id="cc-cvv" name="cc-cvv">
-                  <button>PAY NOW!</button>
-                </form>
-              </div>
-              <div class="receipt">
-                <div class="cash-receipt hide">
-                  <p class ="cash-tendered">Cash tendered: </p>
-                  <p class="change-due">Change Due: $0.00</p>
-                </div>
-                <div class="credit-receipt hide">
-                  <p class="cc-accepted">Your card has been accepted.</p>
-                  <p class="thanks">Thank You</p>
-                </div>
-              </div>
+          <div class="payment-type hide">
+            <p class="cash">cash</p>
+            <p class="credit">credit</p>
+          </div>
+          <div class="cash-screen hide">
+            <form class="cash-form">
+              <label for="tendered">How much cash was tendered?</label>
+              <input type="number" id="tendered" name="tendered" step="any" />
+              <button>PAY NOW!</button>
+            </form>
+          </div>
+          <div class="credit-screen hide">
+            <form class="credit-form">
+              <label for="cc-name">Full Name:</label>
+              <input type="text" id="cc-name" name="cc-name" />
+              <label for="cc-number">Credit Card Number:</label>
+              <input type="text" id="cc-number" name="cc-number" />
+              <label for="cc-expiration">Expiration Date:</label>
+              <input type="text" id="cc-expiration" name="cc-expiration" />
+              <label for="cc-cvv">CVV:</label>
+              <input type="text" id="cc-cvv" name="cc-cvv" />
+              <button>PAY NOW!</button>
+            </form>
+          </div>
+          <div class="receipt">
+            <div class="cash-receipt hide">
+              <p class="cash-tendered">Cash tendered:</p>
+              <p class="change-due">Change Due: $0.00</p>
+            </div>
+            <div class="credit-receipt hide">
+              <p class="cc-accepted">Your card has been accepted.</p>
+              <p class="thanks">Thank You</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="button-box">

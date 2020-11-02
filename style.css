@@ -4,7 +4,7 @@
 body {
   margin: 0;
 }
-.whole-page{
+.whole-page {
   background-color: #eae7dc;
   color: #a9453d;
 }
@@ -15,24 +15,24 @@ body {
   background-color: #eae7dc;
   align-items: center;
 }
-.logo-div{
+.logo-div {
   display: flex;
   justify-content: flex-start;
 }
-.logo{
+.logo {
   height: 50px;
   width: 50px;
   margin-top: 18px;
   margin-left: 8px;
   display: flex;
 }
-.eat-button{
+.eat-button {
   margin: 0px;
 }
-.drink-button{
+.drink-button {
   margin: 0px;
 }
-.header-text{
+.header-text {
   color: #a9453d;
   margin-left: 20px;
 }
@@ -56,7 +56,8 @@ body {
   border: 1px solid #a9453d;
   display: flex;
   justify-content: center;
-  border-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
   padding: 10px;
   padding-bottom: 15px;
   background-color: #d8c3a5;
@@ -83,17 +84,17 @@ body {
   margin: 15px;
   padding: 15px;
   border-top: dotted #a9453d 2px;
-  border-bottom: dotted #a9453d  2px;
-  background-color: #d8c3a5;
+  border-bottom: dotted #a9453d 2px;
+  background-color: #eae7dc;
 }
 .eat-item {
   display: flex;
   justify-content: space-between;
   margin: 15px;
   padding: 15px;
-  border-top: dotted #a9453d  2px;
-  border-bottom: dotted #a9453d  2px;
-  background-color: #d8c3a5;
+  border-top: dotted #a9453d 2px;
+  border-bottom: dotted #a9453d 2px;
+  background-color: #eae7dc;
 }
 
 .cart-popup-container {

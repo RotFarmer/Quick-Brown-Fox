@@ -134,47 +134,59 @@ const menuOnLoad = () => {
   });
 };
 menuOnLoad();
-buttonBox.addEventListener("click", (e) => {
+
+const showMenus = (e)=>{
   drinkMenu.innerHTML = "";
   eatMenu.innerHTML = "";
-  if (e.target.classList.contains("drink-button")) {
-    drinkMenu.classList.add("top");
-    eatMenu.classList.remove("top");
-    drinks.forEach((drink, index) => {
-      let drinkBox = document.createElement("div");
-      let drinksName = document.createElement("p");
-      drinksName.innerText = drink.name;
-      let drinksPrice = document.createElement("p");
-      drinksPrice.innerText = drink.price;
-      let drinksDescription = document.createElement("p");
-      drinksDescription.innerText = `${drink.category} , ${drink.description}`;
-      drinkBox.append(drinksDescription);
-      drinkBox.append(drinksName);
-      drinkBox.append(drinksPrice);
-      drinkBox.classList.add("drink-item");
-      drinkBox.setAttribute("data-index", index);
-      drinkMenu.append(drinkBox);
-    });
-  } else if (e.target.classList.contains("eat-button")) {
-    eatMenu.classList.add("top");
-    drinkMenu.classList.remove("top");
-    eats.forEach((eat, index) => {
-      let eatBox = document.createElement("div");
-      let eatName = document.createElement("p");
-      eatName.innerText = eat.name;
-      let eatPrice = document.createElement("p");
-      eatPrice.innerText = eat.price;
-      let eatDescription = document.createElement("p");
-      eatDescription.innerText = `${eat.category} , ${eat.description}`;
-      eatBox.append(eatDescription);
-      eatBox.append(eatName);
-      eatBox.append(eatPrice);
-      eatBox.classList.add("eat-item");
-      eatBox.setAttribute("data-index", index);
-      eatMenu.append(eatBox);
-    });
+ if (e.target.classList.contains("drink-button")) {
+   drinkMenu.classList.add("top");
+   eatMenu.classList.remove("top");
+   drinks.forEach((drink, index) => {
+     let drinkBox = document.createElement("div");
+     let drinksName = document.createElement("p");
+     drinksName.innerText = drink.name;
+     let drinksPrice = document.createElement("p");
+     drinksPrice.innerText = drink.price;
+     let drinksDescription = document.createElement("p");
+     drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+     drinkBox.append(drinksDescription);
+     drinkBox.append(drinksName);
+     drinkBox.append(drinksPrice);
+     drinkBox.classList.add("drink-item");
+     drinkBox.setAttribute("data-index", index);
+     drinkMenu.append(drinkBox);
+   });
+ } else if (e.target.classList.contains("eat-button")) {
+   eatMenu.classList.add("top");
+   drinkMenu.classList.remove("top");
+   eats.forEach((eat, index) => {
+     let eatBox = document.createElement("div");
+     let eatName = document.createElement("p");
+     eatName.innerText = eat.name;
+     let eatPrice = document.createElement("p");
+     eatPrice.innerText = eat.price;
+     let eatDescription = document.createElement("p");
+     eatDescription.innerText = `${eat.category} , ${eat.description}`;
+     eatBox.append(eatDescription);
+     eatBox.append(eatName);
+     eatBox.append(eatPrice);
+     eatBox.classList.add("eat-item");
+     eatBox.setAttribute("data-index", index);
+     eatMenu.append(eatBox);
+   });
+ }
+} 
+
+buttonBox.addEventListener("click", showMenus);
+
+
+const mediaQuery = window.matchMedia("(min-width: 768px)")
+const fullScreen = (mediaQuery)=>{
+  if(mediaQuery.matches){
+    buttonBox.removeEventListener("click", showMenus)
   }
-});
+}
+fullScreen(mediaQuery)
 
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
@@ -313,6 +325,8 @@ creditForm.addEventListener("submit", (e) => {
   let lastFour = creditNumber.slice(-4);
   thanks.innerText = `Thank you, ${creditName}. for paying with card ending in #${lastFour}`;
 });
+
+
 
 //   let checkoutContainer = document.createElement("div");
 //   checkoutContainer.classList.add("checkout-container");

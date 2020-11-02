@@ -98,6 +98,8 @@ let cashForm = document.querySelector(".cash-form");
 let creditForm = document.querySelector(".credit-form");
 let cashTenderedP = document.querySelector(".cash-tendered");
 let thanks = document.querySelector(".thanks");
+let insufficent = document.querySelector(".insufficent");
+let payNow = document.querySelector(".pay-now");
 let unicorn = document.querySelector(".unicorn")
 
 const menuOnLoad = () => {
@@ -143,58 +145,57 @@ const menuOnLoad = () => {
 };
 menuOnLoad();
 
-const showMenus = (e)=>{
+const showMenus = (e) => {
   drinkMenu.innerHTML = "";
   eatMenu.innerHTML = "";
- if (e.target.classList.contains("drink-button")) {
-   drinkMenu.classList.add("top");
-   eatMenu.classList.remove("top");
-   drinks.forEach((drink, index) => {
-     let drinkBox = document.createElement("div");
-     let drinksName = document.createElement("p");
-     drinksName.innerText = drink.name;
-     let drinksPrice = document.createElement("p");
-     drinksPrice.innerText = drink.price;
-     let drinksDescription = document.createElement("p");
-     drinksDescription.innerText = `${drink.category} , ${drink.description}`;
-     drinkBox.append(drinksDescription);
-     drinkBox.append(drinksName);
-     drinkBox.append(drinksPrice);
-     drinkBox.classList.add("drink-item");
-     drinkBox.setAttribute("data-index", index);
-     drinkMenu.append(drinkBox);
-   });
- } else if (e.target.classList.contains("eat-button")) {
-   eatMenu.classList.add("top");
-   drinkMenu.classList.remove("top");
-   eats.forEach((eat, index) => {
-     let eatBox = document.createElement("div");
-     let eatName = document.createElement("p");
-     eatName.innerText = eat.name;
-     let eatPrice = document.createElement("p");
-     eatPrice.innerText = eat.price;
-     let eatDescription = document.createElement("p");
-     eatDescription.innerText = `${eat.category} , ${eat.description}`;
-     eatBox.append(eatDescription);
-     eatBox.append(eatName);
-     eatBox.append(eatPrice);
-     eatBox.classList.add("eat-item");
-     eatBox.setAttribute("data-index", index);
-     eatMenu.append(eatBox);
-   });
- }
-} 
+  if (e.target.classList.contains("drink-button")) {
+    drinkMenu.classList.add("top");
+    eatMenu.classList.remove("top");
+    drinks.forEach((drink, index) => {
+      let drinkBox = document.createElement("div");
+      let drinksName = document.createElement("p");
+      drinksName.innerText = drink.name;
+      let drinksPrice = document.createElement("p");
+      drinksPrice.innerText = drink.price;
+      let drinksDescription = document.createElement("p");
+      drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+      drinkBox.append(drinksDescription);
+      drinkBox.append(drinksName);
+      drinkBox.append(drinksPrice);
+      drinkBox.classList.add("drink-item");
+      drinkBox.setAttribute("data-index", index);
+      drinkMenu.append(drinkBox);
+    });
+  } else if (e.target.classList.contains("eat-button")) {
+    eatMenu.classList.add("top");
+    drinkMenu.classList.remove("top");
+    eats.forEach((eat, index) => {
+      let eatBox = document.createElement("div");
+      let eatName = document.createElement("p");
+      eatName.innerText = eat.name;
+      let eatPrice = document.createElement("p");
+      eatPrice.innerText = eat.price;
+      let eatDescription = document.createElement("p");
+      eatDescription.innerText = `${eat.category} , ${eat.description}`;
+      eatBox.append(eatDescription);
+      eatBox.append(eatName);
+      eatBox.append(eatPrice);
+      eatBox.classList.add("eat-item");
+      eatBox.setAttribute("data-index", index);
+      eatMenu.append(eatBox);
+    });
+  }
+};
 
 buttonBox.addEventListener("click", showMenus);
 
-
-const mediaQuery = window.matchMedia("(min-width: 768px)")
-const fullScreen = (mediaQuery)=>{
-  if(mediaQuery.matches){
-    buttonBox.removeEventListener("click", showMenus)
+const mediaQuery = window.matchMedia("(min-width: 768px)");
+const fullScreen = (mediaQuery) => {
+  if (mediaQuery.matches) {
+    buttonBox.removeEventListener("click", showMenus);
   }
-}
-fullScreen(mediaQuery)
+};
+fullScreen(mediaQuery);
 
 // const unicornDance = ()=>{
 //   unicorn.classList.toggle("hide")
@@ -219,7 +220,7 @@ menu.addEventListener("click", (e) => {
 const displayCartItemsWithX = () => {
   cartPopupContainer.classList.remove("hide");
   subtotal = 0;
-  cartItemsDiv.innerHTML = "";
+  cartItemsDiv.innerHTML = "<p>No items in cart.<p>";
   cartItems.forEach((item) => {
     let billBox = document.createElement("div");
     billBox.classList.add("bill-box");
@@ -253,6 +254,7 @@ const displayCartItems = () => {
   cartPopupContainer.classList.remove("hide");
   subtotal = 0;
   cartItemsDiv.innerHTML = "";
+
   cartItems.forEach((item) => {
     let billBox = document.createElement("div");
     billBox.classList.add("bill-box");
@@ -314,10 +316,14 @@ const creditScreenDisplay = () => {
   creditScreen.classList.remove("hide");
 };
 
-cashForm.addEventListener("submit", (event) => {
+const addCash = () => {
+  cashScreen.classList.remove(".hide");
+  cashReceipt.classList.add(".hide");
+};
+cashForm.addEventListener("input", (event) => {
   event.preventDefault();
-  cashScreen.classList.add("hide");
-  cashReceipt.classList.remove("hide");
+  // cashScreen.classList.add("hide");
+  // cashReceipt.classList.remove("hide");
   subtotal = 0;
   cartItems.forEach((item) => {
     subtotal += item.price;
@@ -325,10 +331,21 @@ cashForm.addEventListener("submit", (event) => {
   let total = subtotal * 1.06;
   let snapshot = new FormData(cashForm);
   let cashTendered = snapshot.get("tendered");
-  let change = cashTendered - total;
-  changeDue.innerText = `Change Due:  $${change.toFixed(2)}`;
-  cashTenderedP.innerText = `Cash Tendered: $${cashTendered}`;
   console.log(cashTendered);
+  let change = cashTendered - total;
+  if (cashTendered < total) {
+    insufficent.classList.remove("hide");
+    payNow.disabled = true;
+  } else {
+    payNow.addEventListener("click", () => {
+      cashScreen.classList.add("hide");
+      cashReceipt.classList.remove("hide");
+      changeDue.innerText = `Change Due:  $${change.toFixed(2)}`;
+      cashTenderedP.innerText = `Cash Tendered: $${cashTendered}`;
+      payNow.disabled = false;
+      console.log(cashTendered);
+    });
+  }
 });
 
 creditForm.addEventListener("submit", (e) => {
@@ -341,8 +358,6 @@ creditForm.addEventListener("submit", (e) => {
   let lastFour = creditNumber.slice(-4);
   thanks.innerText = `Thank you, ${creditName}. for paying with card ending in #${lastFour}`;
 });
-
-
 
 //   let checkoutContainer = document.createElement("div");
 //   checkoutContainer.classList.add("checkout-container");

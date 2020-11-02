@@ -196,10 +196,10 @@ const fullScreen = (mediaQuery)=>{
 }
 fullScreen(mediaQuery)
 
-// const unicornDance = ()=>{
-//   unicorn.classList.toggle("hide")
-//   unicorn.classList.add("uni")
-// }
+const unicornDance = ()=>{
+  unicorn.classList.toggle("hide")
+  unicorn.classList.add("uni")
+}
 
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
@@ -210,10 +210,7 @@ menu.addEventListener("click", (e) => {
     let index = e.target.getAttribute("data-index");
     cartItems.push(eats[index]);
     console.log(cartItems);
-  } else{
-    unicornDance()
-    setTimeout(unicornDance,4000)
-   }
+  } 
 });
 
 const displayCartItemsWithX = () => {

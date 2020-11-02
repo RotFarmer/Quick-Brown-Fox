@@ -15,7 +15,7 @@ let drinks = [
   },
   {
     name: "Latte",
-    price: 5,
+    price: 5.00,
     category: "Latte",
     description: "Classic latte, created with 2% milk & topped with whipped cream.",
   },
@@ -27,7 +27,7 @@ let drinks = [
   },
   {
     name: "Hot Chocolate",
-    price: 3,
+    price: 3.00,
     category: "Hot Chocolate",
     description: "Classic hot chocolate with whipped cream.",
   },
@@ -48,19 +48,19 @@ let eats = [
   },
   {
     name: "Blueberry Muffin",
-    price: 3,
+    price: 3.00,
     category: "Muffin",
     description: "Classic blueberry muffin.",
   },
   {
     name: "Coffee Cake",
-    price: 3,
+    price: 3.00,
     category: "Muffin",
     description: "A really good coffee cake.",
   },
   {
     name: "Chocolate Chip Cookie",
-    price: 2,
+    price: 2.00,
     category: "cookie",
     description: "The best cookie.",
   },
@@ -108,12 +108,16 @@ const menuOnLoad = () => {
     let drinksName = document.createElement("p");
     drinksName.innerText = drink.name;
     let drinksPrice = document.createElement("p");
-    drinksPrice.innerText = drink.price;
+    drinksPrice.innerText = drink.price.toFixed(2);
     let drinksDescription = document.createElement("p");
+    let descriptionBox = document.createElement("div");
     drinksDescription.innerText = `${drink.category} , ${drink.description}`;
-    drinkBox.append(drinksDescription);
-    drinkBox.append(drinksName);
-    drinkBox.append(drinksPrice);
+    descriptionBox.append(drinksDescription);
+    let itemPriceBox = document.createElement("div");
+    itemPriceBox.append(drinksName, drinksPrice);
+    itemPriceBox.classList.add("item-price-box");
+    drinkBox.append(itemPriceBox);
+    drinkBox.append(descriptionBox);
     drinkBox.classList.add("drink-item");
     drinkBox.setAttribute("data-index", index);
     drinkMenu.append(drinkBox);
@@ -123,12 +127,15 @@ const menuOnLoad = () => {
     let eatName = document.createElement("p");
     eatName.innerText = eat.name;
     let eatPrice = document.createElement("p");
-    eatPrice.innerText = eat.price;
+    eatPrice.innerText = eat.price.toFixed(2);
     let eatDescription = document.createElement("p");
+    let descriptionBox = document.createElement("div")
     eatDescription.innerText = `${eat.category} , ${eat.description}`;
-    eatBox.append(eatDescription);
-    eatBox.append(eatName);
-    eatBox.append(eatPrice);
+    descriptionBox.append(eatDescription);
+    let eatNamePrice = document.createElement("div");
+    eatNamePrice.classList.add("eat-item-price")
+    eatNamePrice.append(eatName, eatPrice)
+    eatBox.append(eatNamePrice, descriptionBox)
     eatBox.classList.add("eat-item");
     eatBox.setAttribute("data-index", index);
     eatMenu.append(eatBox);

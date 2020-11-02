@@ -80,23 +80,37 @@ body {
   border: 1px #a9453d solid;
 }
 
+.item-price-box{
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.eat-item-price{
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
 .drink-item {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   margin: 15px;
-  padding: 15px;
+  padding: 0px 15px;
   border-top: dotted #a9453d 2px;
   border-bottom: dotted #a9453d 2px;
   background-color: #eae7dc;
+  height: 100px;
 }
 .eat-item {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 15px;
-  padding: 15px;
+  padding: 0px 15px;
   border-top: dotted #a9453d 2px;
   border-bottom: dotted #a9453d 2px;
   background-color: #eae7dc;
+  height: 100px;
 }
 
 .cart-popup-container {
@@ -250,10 +264,6 @@ body {
   display: flex;
   justify-content: center;
   margin: 0px;
-}
-
-.cash-receipt{
-  margin: ;
 }
 
 input {

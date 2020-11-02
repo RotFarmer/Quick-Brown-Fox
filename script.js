@@ -2,67 +2,67 @@
 
 let drinks = [
   {
-    name: "coffee",
-    price: 1,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Quick Brown Coffee",
+    price: 2.50,
+    category: "coffee",
+    description: "Basic is Best",
   },
   {
-    name: "tea",
-    price: 2,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Tea",
+    price: 3.50,
+    category: "Tea",
+    description: "Brewed in house.",
   },
   {
-    name: "coffee",
-    price: 5,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Latte",
+    price: 5.00,
+    category: "Latte",
+    description: "Classic latte, created with 2% milk & topped with whipped cream.",
   },
   {
-    name: "tea",
-    price: 3,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Smoothie",
+    price: 4.50,
+    category: "Smoothie",
+    description: "Choice of Strawberry, Raspberry, or Mango.",
   },
   {
-    name: "coffee",
-    price: 4,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Hot Chocolate",
+    price: 3.00,
+    category: "Hot Chocolate",
+    description: "Classic hot chocolate with whipped cream.",
   },
 ];
 
 let eats = [
   {
-    name: "food",
-    price: 1,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Lazy Dog Bagel",
+    price: 2.50,
+    category: "Bagel",
+    description: "Just a plain bagel with cream cheese.",
   },
   {
-    name: "food",
-    price: 1,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Everything Bagel",
+    price: 2.50,
+    category: "Bagel",
+    description: "A bagel, with everything on it.",
   },
   {
-    name: "food",
-    price: 1,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Blueberry Muffin",
+    price: 3.00,
+    category: "Muffin",
+    description: "Classic blueberry muffin.",
   },
   {
-    name: "food",
-    price: 1,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Coffee Cake",
+    price: 3.00,
+    category: "Muffin",
+    description: "A really good coffee cake.",
   },
   {
-    name: "food",
-    price: 1,
-    category: "data doesn't matter",
-    description: "data doesn't matter",
+    name: "Chocolate Chip Cookie",
+    price: 2.00,
+    category: "cookie",
+    description: "The best cookie.",
   },
 ];
 let cartItems = [];
@@ -100,6 +100,7 @@ let cashTenderedP = document.querySelector(".cash-tendered");
 let thanks = document.querySelector(".thanks");
 let insufficent = document.querySelector(".insufficent");
 let payNow = document.querySelector(".pay-now");
+let unicorn = document.querySelector(".unicorn")
 
 const menuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -109,12 +110,16 @@ const menuOnLoad = () => {
     let drinksName = document.createElement("p");
     drinksName.innerText = drink.name;
     let drinksPrice = document.createElement("p");
-    drinksPrice.innerText = drink.price;
+    drinksPrice.innerText = `$${drink.price.toFixed(2)}`;
     let drinksDescription = document.createElement("p");
+    let descriptionBox = document.createElement("div");
     drinksDescription.innerText = `${drink.category} , ${drink.description}`;
-    drinkBox.append(drinksDescription);
-    drinkBox.append(drinksName);
-    drinkBox.append(drinksPrice);
+    descriptionBox.append(drinksDescription);
+    let itemPriceBox = document.createElement("div");
+    itemPriceBox.append(drinksName, drinksPrice);
+    itemPriceBox.classList.add("item-price-box");
+    drinkBox.append(itemPriceBox);
+    drinkBox.append(descriptionBox);
     drinkBox.classList.add("drink-item");
     drinkBox.setAttribute("data-index", index);
     drinkMenu.append(drinkBox);
@@ -124,12 +129,15 @@ const menuOnLoad = () => {
     let eatName = document.createElement("p");
     eatName.innerText = eat.name;
     let eatPrice = document.createElement("p");
-    eatPrice.innerText = eat.price;
+    eatPrice.innerText = `$${eat.price.toFixed(2)}`;
     let eatDescription = document.createElement("p");
+    let descriptionBox = document.createElement("div")
     eatDescription.innerText = `${eat.category} , ${eat.description}`;
-    eatBox.append(eatDescription);
-    eatBox.append(eatName);
-    eatBox.append(eatPrice);
+    descriptionBox.append(eatDescription);
+    let eatNamePrice = document.createElement("div");
+    eatNamePrice.classList.add("eat-item-price")
+    eatNamePrice.append(eatName, eatPrice)
+    eatBox.append(eatNamePrice, descriptionBox)
     eatBox.classList.add("eat-item");
     eatBox.setAttribute("data-index", index);
     eatMenu.append(eatBox);
@@ -189,6 +197,11 @@ const fullScreen = (mediaQuery) => {
 };
 fullScreen(mediaQuery);
 
+// const unicornDance = ()=>{
+//   unicorn.classList.toggle("hide")
+//   unicorn.classList.add("uni")
+// }
+
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
     let index = e.target.getAttribute("data-index");
@@ -198,7 +211,10 @@ menu.addEventListener("click", (e) => {
     let index = e.target.getAttribute("data-index");
     cartItems.push(eats[index]);
     console.log(cartItems);
-  }
+  } else{
+    unicornDance()
+    setTimeout(unicornDance,4000)
+   }
 });
 
 const displayCartItemsWithX = () => {

@@ -28,9 +28,11 @@ body {
 }
 .eat-button {
   margin: 0px;
+  font-size: 20px;
 }
 .drink-button {
   margin: 0px;
+  font-size: 20px;
 }
 .header-text {
   color: #a9453d;
@@ -80,7 +82,7 @@ body {
 
 .drink-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 15px;
   padding: 15px;
   border-top: dotted #a9453d 2px;
@@ -143,6 +145,7 @@ body {
   justify-content: space-between;
   margin: 15px;
   border-bottom: 1px solid #a9453d;
+  color: #a9453d;
 }
 
 .popup-heading {
@@ -172,14 +175,46 @@ body {
 
 /* move totals to right */
 .totals {
-  margin-right: 10px;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
+  color: #a9453d;
   /* justify-content: right; */
 }
 
+.subtotal, .tax, .total{
+  margin: 0px;
+}
+
+.total{
+  margin-bottom: 20px;
+}
+
 .checkout-button {
-  background-color: #eae7dc;
+  background-color: #d8c3a5;
+  color: #a9453d;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  /* display: inline-block; */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.cash{
+    background-color: #d8c3a5;
+    color: #a9453d;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    /* display: inline-block; */
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.credit{
+  background-color: #d8c3a5;
+  color: #a9453d;
   padding: 10px;
   border-radius: 10px;
   text-align: center;
@@ -195,7 +230,6 @@ body {
 }
 .card,
 .cash {
-  background-color: rgb(165, 42, 42, 0.6);
   padding: 10px;
   border-radius: 10px;
 }
@@ -203,6 +237,23 @@ body {
 .cash-form-container {
   display: flex;
   align-items: space-between;
+}
+
+.cash-form{
+  color: #a9453d;
+  display: flex;
+  justify-content: center;
+}
+
+.receipt{
+  color: #a9453d;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+}
+
+.cash-receipt{
+  margin: ;
 }
 
 input {
@@ -217,11 +268,19 @@ input {
   flex-direction: column;
 }
 
+.credit-form{
+  display: flex;
+  flex-direction: column;
+  color: #a9453d;
+  
+}
+
 .clear-cart-button {
   background-color: #eae7dc;
-  color: #838d8a;
+  color: #a9453d;
   outline: none;
   border: none;
+  margin-top: 10px;
   margin-bottom: 15px;
 }
 

@@ -225,6 +225,44 @@ input {
   margin-bottom: 15px;
 }
 
+.unicorn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img {
+  height: 50%;
+  width: 50%;
+}
+
+@keyframes uni {
+  0% {
+    background-color: red;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.spin{
+  animation:spin 4s linear infinite;
+}
+
+.uni {
+  animation: uni 4s;
+}
 .hide {
   display: none;
 }

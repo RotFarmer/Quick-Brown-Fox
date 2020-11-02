@@ -98,6 +98,7 @@ let cashForm = document.querySelector(".cash-form");
 let creditForm = document.querySelector(".credit-form");
 let cashTenderedP = document.querySelector(".cash-tendered");
 let thanks = document.querySelector(".thanks");
+let unicorn = document.querySelector(".unicorn")
 
 const menuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -188,6 +189,11 @@ const fullScreen = (mediaQuery)=>{
 }
 fullScreen(mediaQuery)
 
+const unicornDance = ()=>{
+  unicorn.classList.toggle("hide")
+  unicorn.classList.add("uni")
+}
+
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
     let index = e.target.getAttribute("data-index");
@@ -197,7 +203,10 @@ menu.addEventListener("click", (e) => {
     let index = e.target.getAttribute("data-index");
     cartItems.push(eats[index]);
     console.log(cartItems);
-  }
+  } else{
+    unicornDance()
+    setTimeout(unicornDance,4000)
+   }
 });
 
 const displayCartItemsWithX = () => {

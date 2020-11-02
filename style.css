@@ -111,53 +111,82 @@ body {
 .cart-popup {
   position: relative;
   width: 50%;
-  background-color: cornsilk;
+  background-color: #eae7dc;
+  color: #8e8d8a;
+  border-radius: 10px;
+  padding: 10px;
 }
 .close-cart-button {
   position: absolute;
   right: 0;
   top: 0;
+  margin: 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: #a9453d;
+  background-color: #eae7dc;
+}
+
+.remove-item {
+  /* position: absolute; */
+  /* right: 2px; */
+  border: none;
+  border-radius: 10px;
+  color: #8e8d8a;
+  background-color: rgb(234, 231, 220, 1);
 }
 
 .bill-box {
   display: flex;
   justify-content: space-between;
   margin: 15px;
-  border-bottom: 1px solid green;
+  border-bottom: 1px solid #a9453d;
 }
 
-.x {
+.popup-heading {
+  color: #a9453d;
+  font-size: 20px;
+}
+
+/* .x {
   position: absolute;
   top: 0;
   margin: 0;
   right: 0;
   padding: 2px;
   background-color: rgb(170, 158, 124);
-  border: 1px solid grey;
-  color: cornsilk;
-}
+  border: none;
+  border-radius: 10px;
+  color: #eae7dc;
+} */
+
 .total-box {
   display: flex;
   justify-content: space-between;
   margin: 15px;
   /* border-top: 1px solid blue; */
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #a9453d;
+}
+
+/* move totals to right */
+.totals {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: right; */
 }
 
 .checkout-button {
-  background-color: rgb(165, 42, 42, 0.6);
+  background-color: #eae7dc;
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  display: inline-block;
+  /* display: inline-block; */
   margin-left: 50%;
   transform: translateX(-50%);
 }
-.clear-cart {
-  opacity: 0.6;
-  margin: auto;
-  text-align: center;
-}
+
 .payment {
   display: flex;
   justify-content: space-around;
@@ -182,10 +211,17 @@ input {
   background-color: cornsilk;
 }
 
-button {
-  background-color: rgb(165, 42, 42, 0.6);
-  padding: 10px;
-  border-radius: 10px;
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.clear-cart-button {
+  background-color: #eae7dc;
+  color: #838d8a;
+  outline: none;
+  border: none;
+  margin-bottom: 15px;
 }
 
 .hide {
@@ -202,12 +238,3 @@ button {
     z-index: 0;
   }
 }
-/* @media only screen and (min-width: 768px) {
-  .flex-menu{
-    display: flex;
-    flex-grow: .25;
-  }
-  .eat-menu, .drink-menu{
-    position: relative;
-  }
-} */

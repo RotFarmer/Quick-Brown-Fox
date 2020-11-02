@@ -28,27 +28,25 @@
         <div class="cart-popup">
           <p class="popup-heading">The Quick Brown Fox</p>
           <button class="close-cart-button">X</button>
-          <div class="cart-items" overflow: scroll:>
-          </div>
+          <div class="cart-items"></div>
           <div class="totals">
-            <p class="subtotal total-items">Sub Total: $0.00</p>
-            <p class="tax total-items">Tax: $0.00</p>
-            <p class="total total-items">Total: $0.00</p>
+            <p class="subtotal">Sub Total: $0.00</p>
+            <p class="tax">Tax: $0.00</p>
+            <p class="total">Total: $0.00</p>
           </div>
           <div class="cart-buttons">
             <button class="checkout-button">Checkout</button>
             <button class="clear-cart-button">Clear Cart</button>
           </div>
           <div class="payment-type hide">
-            <button class="cash">Pay with Cash</button>
-            <button class="credit">Pay with Credit</button>
+            <p class="cash">cash</p>
+            <p class="credit">credit</p>
           </div>
           <div class="cash-screen hide">
-            <p class="insufficent hide">"Insufficent Funds"</p>
             <form class="cash-form">
               <label for="tendered">How much cash was tendered?</label>
               <input type="number" id="tendered" name="tendered" step="any" />
-              <button class="pay-now" type="button">PAY NOW!</button>
+              <button>PAY NOW!</button>
             </form>
           </div>
           <div class="credit-screen hide">
@@ -61,7 +59,7 @@
               <input type="text" id="cc-expiration" name="cc-expiration" />
               <label for="cc-cvv">CVV:</label>
               <input type="text" id="cc-cvv" name="cc-cvv" />
-              <button class="pay-now" type="button">PAY NOW!</button>
+              <button>PAY NOW!</button>
             </form>
           </div>
           <div class="receipt">

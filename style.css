@@ -133,30 +133,21 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
-
-.cart-items {
-  height: 250px;
-  overflow: scroll;
-}
 .close-cart-button {
   position: absolute;
   right: 0;
   top: 0;
   margin: 0;
-  /* padding: 10px; */
+  padding: 10px;
   border: none;
   border-radius: 10px;
   color: #a9453d;
   background-color: #eae7dc;
 }
 
-.close-cart-button:hover {
-  background-color: #d8c3a5;
-}
-
 .remove-item {
-  position: absolute;
-  right: 2px;
+  /* position: absolute; */
+  /* right: 2px; */
   border: none;
   border-radius: 10px;
   color: #8e8d8a;
@@ -176,25 +167,25 @@ body {
   font-size: 20px;
 }
 
-/* move totals to right */
-.totals {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  margin: 15px;
-}
+/* .x {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  right: 0;
+  padding: 2px;
+  background-color: rgb(170, 158, 124);
+  border: none;
+  border-radius: 10px;
+  color: #eae7dc;
+} */
 
-
-.total-items {
+.total-box {
   display: flex;
   justify-content: space-between;
+  margin: 15px;
+  /* border-top: 1px solid blue; */
+  border-bottom: 2px solid #a9453d;
 }
-
-.checkout-button,
-.credit,
-.cash,
-.pay-now {
-  background-color: #eae7dc;
 
 /* move totals to right */
 .totals {
@@ -224,33 +215,42 @@ body {
   transform: translateX(-50%);
 }
 
-
-.checkout-button:hover,
-.credit:hover,
-.cash:hover,
-.pay-now:hover {
-  background-color: #a9453d;
-  color: #eae7dc;
+.cash{
+    background-color: #d8c3a5;
+    color: #a9453d;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    /* display: inline-block; */
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
-.payment-type {
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
+.credit{
+  background-color: #d8c3a5;
+  color: #a9453d;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  /* display: inline-block; */
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
-.cash-form {
+.payment {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px;
+}
 .card,
 .cash {
   padding: 10px;
   border-radius: 10px;
 }
 
-.credit-form {
+.cash-form-container {
   display: flex;
-  flex-direction: column;
+  align-items: space-between;
 }
 
 .cash-form{

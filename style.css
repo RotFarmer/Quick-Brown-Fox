@@ -92,16 +92,7 @@ body {
   pointer-events: none;
 }
 
-.drink-item {
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  padding: 0px 15px;
-  border-top: dotted #a9453d 2px;
-  border-bottom: dotted #a9453d 2px;
-  background-color: #eae7dc;
-  height: 100px;
-}
+.drink-item,
 .eat-item {
   display: flex;
   flex-direction: column;
@@ -111,6 +102,13 @@ body {
   border-bottom: dotted #a9453d 2px;
   background-color: #eae7dc;
   height: 100px;
+  box-shadow: 3px 4px #c19f7a;
+}
+
+.drink-item:hover,
+.eat-item:hover{
+  background-color:#e0dccc;
+  /* box-shadow: none; */
 }
 
 .cart-popup-container {

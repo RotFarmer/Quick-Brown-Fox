@@ -80,13 +80,13 @@ body {
   border: 1px #a9453d solid;
 }
 
-.item-price-box{
+.item-price-box {
   display: flex;
   justify-content: space-between;
   pointer-events: none;
 }
 
-.eat-item-price{
+.eat-item-price {
   display: flex;
   justify-content: space-between;
   pointer-events: none;
@@ -153,6 +153,10 @@ body {
   color: #8e8d8a;
   background-color: rgb(234, 231, 220, 1);
 }
+.cart-items {
+  overflow: scroll;
+  height: 260px;
+}
 
 .bill-box {
   display: flex;
@@ -196,11 +200,13 @@ body {
   /* justify-content: right; */
 }
 
-.subtotal, .tax, .total{
+.subtotal,
+.tax,
+.total {
   margin: 0px;
 }
 
-.total{
+.total {
   margin-bottom: 20px;
 }
 
@@ -215,18 +221,18 @@ body {
   transform: translateX(-50%);
 }
 
-.cash{
-    background-color: #d8c3a5;
-    color: #a9453d;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    /* display: inline-block; */
-    margin-left: 50%;
-    transform: translateX(-50%);
+.cash {
+  background-color: #d8c3a5;
+  color: #a9453d;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  /* display: inline-block; */
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
-.credit{
+.credit {
   background-color: #d8c3a5;
   color: #a9453d;
   padding: 10px;
@@ -253,13 +259,13 @@ body {
   align-items: space-between;
 }
 
-.cash-form{
+.cash-form {
   color: #a9453d;
   display: flex;
   justify-content: center;
 }
 
-.receipt{
+.receipt {
   color: #a9453d;
   display: flex;
   justify-content: center;
@@ -278,11 +284,10 @@ input {
   flex-direction: column;
 }
 
-.credit-form{
+.credit-form {
   display: flex;
   flex-direction: column;
   color: #a9453d;
-  
 }
 
 .clear-cart-button {
@@ -325,8 +330,8 @@ img {
   }
 }
 
-.spin{
-  animation:spin 4s linear infinite;
+.spin {
+  animation: spin 4s linear infinite;
 }
 
 .uni {

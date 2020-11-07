@@ -3,31 +3,32 @@
 let drinks = [
   {
     name: "Quick Brown Coffee",
-    price: 2.50,
+    price: 2.5,
     category: "coffee",
     description: "Basic is Best",
   },
   {
     name: "Tea",
-    price: 3.50,
+    price: 3.5,
     category: "Tea",
     description: "Brewed in house.",
   },
   {
     name: "Latte",
-    price: 5.00,
+    price: 5.0,
     category: "Latte",
-    description: "Classic latte, created with 2% milk & topped with whipped cream.",
+    description:
+      "Classic latte, created with 2% milk & topped with whipped cream.",
   },
   {
     name: "Smoothie",
-    price: 4.50,
+    price: 4.5,
     category: "Smoothie",
     description: "Choice of Strawberry, Raspberry, or Mango.",
   },
   {
     name: "Hot Chocolate",
-    price: 3.00,
+    price: 3.0,
     category: "Hot Chocolate",
     description: "Classic hot chocolate with whipped cream.",
   },
@@ -36,31 +37,31 @@ let drinks = [
 let eats = [
   {
     name: "Lazy Dog Bagel",
-    price: 2.50,
+    price: 2.5,
     category: "Bagel",
     description: "Just a plain bagel with cream cheese.",
   },
   {
     name: "Everything Bagel",
-    price: 2.50,
+    price: 2.5,
     category: "Bagel",
     description: "A bagel, with everything on it.",
   },
   {
     name: "Blueberry Muffin",
-    price: 3.00,
+    price: 3.0,
     category: "Muffin",
     description: "Classic blueberry muffin.",
   },
   {
     name: "Coffee Cake",
-    price: 3.00,
+    price: 3.0,
     category: "Muffin",
     description: "A really good coffee cake.",
   },
   {
     name: "Chocolate Chip Cookie",
-    price: 2.00,
+    price: 2.0,
     category: "cookie",
     description: "The best cookie.",
   },
@@ -98,7 +99,7 @@ let cashForm = document.querySelector(".cash-form");
 let creditForm = document.querySelector(".credit-form");
 let cashTenderedP = document.querySelector(".cash-tendered");
 let thanks = document.querySelector(".thanks");
-let unicorn = document.querySelector(".unicorn")
+let unicorn = document.querySelector(".unicorn");
 
 const menuOnLoad = () => {
   drinkMenu.classList.add("top");
@@ -129,13 +130,13 @@ const menuOnLoad = () => {
     let eatPrice = document.createElement("p");
     eatPrice.innerText = `$${eat.price.toFixed(2)}`;
     let eatDescription = document.createElement("p");
-    let descriptionBox = document.createElement("div")
+    let descriptionBox = document.createElement("div");
     eatDescription.innerText = `${eat.category} , ${eat.description}`;
     descriptionBox.append(eatDescription);
     let eatNamePrice = document.createElement("div");
-    eatNamePrice.classList.add("eat-item-price")
-    eatNamePrice.append(eatName, eatPrice)
-    eatBox.append(eatNamePrice, descriptionBox)
+    eatNamePrice.classList.add("eat-item-price");
+    eatNamePrice.append(eatName, eatPrice);
+    eatBox.append(eatNamePrice, descriptionBox);
     eatBox.classList.add("eat-item");
     eatBox.setAttribute("data-index", index);
     eatMenu.append(eatBox);
@@ -143,63 +144,62 @@ const menuOnLoad = () => {
 };
 menuOnLoad();
 
-const showMenus = (e)=>{
+const showMenus = (e) => {
   drinkMenu.innerHTML = "";
   eatMenu.innerHTML = "";
- if (e.target.classList.contains("drink-button")) {
-   drinkMenu.classList.add("top");
-   eatMenu.classList.remove("top");
-   drinks.forEach((drink, index) => {
-     let drinkBox = document.createElement("div");
-     let drinksName = document.createElement("p");
-     drinksName.innerText = drink.name;
-     let drinksPrice = document.createElement("p");
-     drinksPrice.innerText = drink.price;
-     let drinksDescription = document.createElement("p");
-     drinksDescription.innerText = `${drink.category} , ${drink.description}`;
-     drinkBox.append(drinksDescription);
-     drinkBox.append(drinksName);
-     drinkBox.append(drinksPrice);
-     drinkBox.classList.add("drink-item");
-     drinkBox.setAttribute("data-index", index);
-     drinkMenu.append(drinkBox);
-   });
- } else if (e.target.classList.contains("eat-button")) {
-   eatMenu.classList.add("top");
-   drinkMenu.classList.remove("top");
-   eats.forEach((eat, index) => {
-     let eatBox = document.createElement("div");
-     let eatName = document.createElement("p");
-     eatName.innerText = eat.name;
-     let eatPrice = document.createElement("p");
-     eatPrice.innerText = eat.price;
-     let eatDescription = document.createElement("p");
-     eatDescription.innerText = `${eat.category} , ${eat.description}`;
-     eatBox.append(eatDescription);
-     eatBox.append(eatName);
-     eatBox.append(eatPrice);
-     eatBox.classList.add("eat-item");
-     eatBox.setAttribute("data-index", index);
-     eatMenu.append(eatBox);
-   });
- }
-} 
+  if (e.target.classList.contains("drink-button")) {
+    drinkMenu.classList.add("top");
+    eatMenu.classList.remove("top");
+    drinks.forEach((drink, index) => {
+      let drinkBox = document.createElement("div");
+      let drinksName = document.createElement("p");
+      drinksName.innerText = drink.name;
+      let drinksPrice = document.createElement("p");
+      drinksPrice.innerText = drink.price;
+      let drinksDescription = document.createElement("p");
+      drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+      drinkBox.append(drinksDescription);
+      drinkBox.append(drinksName);
+      drinkBox.append(drinksPrice);
+      drinkBox.classList.add("drink-item");
+      drinkBox.setAttribute("data-index", index);
+      drinkMenu.append(drinkBox);
+    });
+  } else if (e.target.classList.contains("eat-button")) {
+    eatMenu.classList.add("top");
+    drinkMenu.classList.remove("top");
+    eats.forEach((eat, index) => {
+      let eatBox = document.createElement("div");
+      let eatName = document.createElement("p");
+      eatName.innerText = eat.name;
+      let eatPrice = document.createElement("p");
+      eatPrice.innerText = eat.price;
+      let eatDescription = document.createElement("p");
+      eatDescription.innerText = `${eat.category} , ${eat.description}`;
+      eatBox.append(eatDescription);
+      eatBox.append(eatName);
+      eatBox.append(eatPrice);
+      eatBox.classList.add("eat-item");
+      eatBox.setAttribute("data-index", index);
+      eatMenu.append(eatBox);
+    });
+  }
+};
 
 buttonBox.addEventListener("click", showMenus);
 
-
-const mediaQuery = window.matchMedia("(min-width: 768px)")
-const fullScreen = (mediaQuery)=>{
-  if(mediaQuery.matches){
-    buttonBox.removeEventListener("click", showMenus)
+const mediaQuery = window.matchMedia("(min-width: 768px)");
+const fullScreen = (mediaQuery) => {
+  if (mediaQuery.matches) {
+    buttonBox.removeEventListener("click", showMenus);
   }
-}
-fullScreen(mediaQuery)
+};
+fullScreen(mediaQuery);
 
-const unicornDance = ()=>{
-  unicorn.classList.toggle("hide")
-  unicorn.classList.add("uni")
-}
+const unicornDance = () => {
+  unicorn.classList.toggle("hide");
+  unicorn.classList.add("uni");
+};
 
 menu.addEventListener("click", (e) => {
   if (e.target.classList.contains("drink-item")) {
@@ -210,7 +210,7 @@ menu.addEventListener("click", (e) => {
     let index = e.target.getAttribute("data-index");
     cartItems.push(eats[index]);
     console.log(cartItems);
-  } 
+  }
 });
 
 const displayCartItemsWithX = () => {
@@ -338,8 +338,6 @@ creditForm.addEventListener("submit", (e) => {
   let lastFour = creditNumber.slice(-4);
   thanks.innerText = `Thank you, ${creditName}. for paying with card ending in #${lastFour}`;
 });
-
-
 
 //   let checkoutContainer = document.createElement("div");
 //   checkoutContainer.classList.add("checkout-container");

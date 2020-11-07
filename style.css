@@ -214,11 +214,17 @@ body {
   background-color: #d8c3a5;
   color: #a9453d;
   padding: 10px;
+  border: none;
   border-radius: 10px;
   text-align: center;
   /* display: inline-block; */
   margin-left: 50%;
   transform: translateX(-50%);
+}
+
+.checkout-button:hover {
+  background-color: #a9453d;
+  color: #eae7dc;
 }
 
 .cash {

@@ -210,7 +210,7 @@ body {
   margin-bottom: 20px;
 }
 
-.checkout-button {
+/* .checkout-button {
   background-color: #d8c3a5;
   color: #a9453d;
   padding: 10px;
@@ -218,16 +218,34 @@ body {
   border-radius: 10px;
   text-align: center;
   /* display: inline-block; */
+  /* margin-left: 50%;
+  transform: translateX(-50%);
+} */ 
+
+.checkout-button,
+.cash,
+.credit,
+.pay-now-cash,
+.pay-now-credit {
+  background-color: #d8c3a5;
+  color: #a9453d;
+  padding: 10px;
+  border:none;
+  border-radius: 10px;
+  text-align: center;
   margin-left: 50%;
   transform: translateX(-50%);
 }
 
-.checkout-button:hover {
+.checkout-button:hover,
+.cash:hover,
+.credit:hover,
+.pay-now-cash:hover,
+.pay-now-credit:hover {
   background-color: #a9453d;
   color: #eae7dc;
 }
-
-.cash {
+/* .credit {
   background-color: #d8c3a5;
   color: #a9453d;
   padding: 10px;
@@ -236,18 +254,7 @@ body {
   /* display: inline-block; */
   margin-left: 50%;
   transform: translateX(-50%);
-}
-
-.credit {
-  background-color: #d8c3a5;
-  color: #a9453d;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  /* display: inline-block; */
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
+} */
 
 .payment {
   display: flex;
@@ -298,7 +305,7 @@ input {
 
 .clear-cart-button {
   background-color: #eae7dc;
-  color: #a9453d;
+  color: rgb(142, 141, 138, 0.6);
   outline: none;
   border: none;
   margin-top: 10px;

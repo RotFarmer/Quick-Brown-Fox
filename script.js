@@ -112,7 +112,7 @@ const menuOnLoad = () => {
     drinksPrice.innerText = `$${drink.price.toFixed(2)}`;
     let drinksDescription = document.createElement("p");
     let descriptionBox = document.createElement("div");
-    drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+    drinksDescription.innerText = `${drink.description}`;
     descriptionBox.append(drinksDescription);
     let itemPriceBox = document.createElement("div");
     itemPriceBox.append(drinksName, drinksPrice);
@@ -131,7 +131,7 @@ const menuOnLoad = () => {
     eatPrice.innerText = `$${eat.price.toFixed(2)}`;
     let eatDescription = document.createElement("p");
     let descriptionBox = document.createElement("div");
-    eatDescription.innerText = `${eat.category} , ${eat.description}`;
+    eatDescription.innerText = `${eat.description}`;
     descriptionBox.append(eatDescription);
     let eatNamePrice = document.createElement("div");
     eatNamePrice.classList.add("eat-item-price");
@@ -157,7 +157,7 @@ const showMenus = (e) => {
       let drinksPrice = document.createElement("p");
       drinksPrice.innerText = drink.price;
       let drinksDescription = document.createElement("p");
-      drinksDescription.innerText = `${drink.category} , ${drink.description}`;
+      drinksDescription.innerText = `${drink.description}`;
       drinkBox.append(drinksDescription);
       drinkBox.append(drinksName);
       drinkBox.append(drinksPrice);
@@ -175,7 +175,7 @@ const showMenus = (e) => {
       let eatPrice = document.createElement("p");
       eatPrice.innerText = eat.price;
       let eatDescription = document.createElement("p");
-      eatDescription.innerText = `${eat.category} , ${eat.description}`;
+      eatDescription.innerText = `${eat.description}`;
       eatBox.append(eatDescription);
       eatBox.append(eatName);
       eatBox.append(eatPrice);

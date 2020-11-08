@@ -275,6 +275,17 @@ input {
   margin-bottom: 15px;
 }
 
+.footer {
+  background-color: #eae7dc;
+  color: rgb(142, 141, 138, 0.6);
+}
+
+.footer-text {
+  margin: 0px;
+  padding: 10px;
+  float: right;
+}
+
 .unicorn {
   display: flex;
   align-items: center;

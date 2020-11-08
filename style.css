@@ -111,8 +111,10 @@ body {
   /* box-shadow: none; */
 }
 
-.drink-item:active {
+.drink-item:active,
+.eat-item:active {
   background-color: #c19f7a;
+  /* transition-duration: 1s; */
 }
 
 .cart-popup-container {
@@ -278,6 +280,7 @@ input {
 .footer {
   background-color: #eae7dc;
   color: rgb(142, 141, 138, 0.6);
+  font: 10px;
 }
 
 .footer-text {

@@ -80,28 +80,19 @@ body {
   border: 1px #a9453d solid;
 }
 
-.item-price-box{
+.item-price-box {
   display: flex;
   justify-content: space-between;
   pointer-events: none;
 }
 
-.eat-item-price{
+.eat-item-price {
   display: flex;
   justify-content: space-between;
   pointer-events: none;
 }
 
-.drink-item {
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  padding: 0px 15px;
-  border-top: dotted #a9453d 2px;
-  border-bottom: dotted #a9453d 2px;
-  background-color: #eae7dc;
-  height: 100px;
-}
+.drink-item,
 .eat-item {
   display: flex;
   flex-direction: column;
@@ -110,7 +101,20 @@ body {
   border-top: dotted #a9453d 2px;
   border-bottom: dotted #a9453d 2px;
   background-color: #eae7dc;
-  height: 100px;
+  /* height: 100px; */
+  box-shadow: 3px 4px #c19f7a;
+}
+
+.drink-item:hover,
+.eat-item:hover {
+  background-color: #e0dccc;
+  /* box-shadow: none; */
+}
+
+.drink-item:active,
+.eat-item:active {
+  background-color: #c19f7a;
+  /* transition-duration: 1s; */
 }
 
 .cart-popup-container {
@@ -153,6 +157,10 @@ body {
   color: #8e8d8a;
   background-color: rgb(234, 231, 220, 1);
 }
+.cart-items {
+  overflow: scroll;
+  height: 260px;
+}
 
 .bill-box {
   display: flex;
@@ -167,74 +175,53 @@ body {
   font-size: 20px;
 }
 
-/* .x {
-  position: absolute;
-  top: 0;
-  margin: 0;
-  right: 0;
-  padding: 2px;
-  background-color: rgb(170, 158, 124);
-  border: none;
-  border-radius: 10px;
-  color: #eae7dc;
-} */
-
 .total-box {
   display: flex;
   justify-content: space-between;
   margin: 15px;
-  /* border-top: 1px solid blue; */
   border-bottom: 2px solid #a9453d;
 }
 
-/* move totals to right */
 .totals {
   margin-left: 30px;
   display: flex;
   flex-direction: column;
   color: #a9453d;
-  /* justify-content: right; */
+  /* align-items: center; */
 }
 
-.subtotal, .tax, .total{
+.subtotal,
+.tax,
+.total {
   margin: 0px;
 }
 
-.total{
+.total {
   margin-bottom: 20px;
 }
 
-.checkout-button {
+.checkout-button,
+.cash,
+.credit,
+.pay-now-cash,
+.pay-now-credit {
   background-color: #d8c3a5;
   color: #a9453d;
   padding: 10px;
+  border: none;
   border-radius: 10px;
   text-align: center;
-  /* display: inline-block; */
   margin-left: 50%;
   transform: translateX(-50%);
 }
 
-.cash{
-    background-color: #d8c3a5;
-    color: #a9453d;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    /* display: inline-block; */
-    margin-left: 50%;
-    transform: translateX(-50%);
-}
-
-.credit{
-  background-color: #d8c3a5;
-  color: #a9453d;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  /* display: inline-block; */
-  margin-left: 50%;
-  transform: translateX(-50%);
+.checkout-button:hover,
+.cash:hover,
+.credit:hover,
+.pay-now-cash:hover,
+.pay-now-credit:hover {
+  background-color: #a9453d;
+  color: #eae7dc;
 }
 
 .payment {
@@ -242,24 +229,20 @@ body {
   justify-content: space-around;
   margin: 15px;
 }
-.card,
-.cash {
-  padding: 10px;
-  border-radius: 10px;
-}
 
 .cash-form-container {
   display: flex;
   align-items: space-between;
 }
 
-.cash-form{
+.cash-form {
   color: #a9453d;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.receipt{
+.receipt {
   color: #a9453d;
   display: flex;
   justify-content: center;
@@ -267,10 +250,11 @@ body {
 }
 
 input {
+  /* box-shadow: 3px 4px #c19f7a; */
   border-top: none;
   border-left: none;
   /* border-bottom: green; */
-  background-color: cornsilk;
+  background-color: #e0dccc;
 }
 
 .cart-buttons {
@@ -278,20 +262,31 @@ input {
   flex-direction: column;
 }
 
-.credit-form{
+.credit-form {
   display: flex;
   flex-direction: column;
   color: #a9453d;
-  
 }
 
 .clear-cart-button {
   background-color: #eae7dc;
-  color: #a9453d;
+  color: rgb(142, 141, 138, 0.6);
   outline: none;
   border: none;
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.footer {
+  background-color: #eae7dc;
+  color: rgb(142, 141, 138, 0.6);
+  font: 10px;
+}
+
+.footer-text {
+  margin: 0px;
+  padding: 10px;
+  float: right;
 }
 
 .unicorn {
@@ -325,8 +320,8 @@ img {
   }
 }
 
-.spin{
-  animation:spin 4s linear infinite;
+.spin {
+  animation: spin 4s linear infinite;
 }
 
 .uni {

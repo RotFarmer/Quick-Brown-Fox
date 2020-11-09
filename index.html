@@ -23,10 +23,17 @@
         </div>
         <img src="/assets/cart.png" alt="cart" class="cart" />
       </header>
-      <div class="unicorn hide"><img src="assets/mitch's unicorn.png" alt="dabbing unicorn" class="spin"></div>
+      <div class="unicorn hide">
+        <img
+          src="assets/mitch's unicorn.png"
+          alt="dabbing unicorn"
+          class="spin"
+        />
+      </div>
       <div class="cart-popup-container hide">
         <div class="cart-popup">
           <p class="popup-heading">The Quick Brown Fox</p>
+          <p class="cart-is-empty">The cart is empty</p>
           <button class="close-cart-button">X</button>
           <div class="cart-items"></div>
           <div class="totals">
@@ -46,7 +53,7 @@
             <form class="cash-form">
               <label for="tendered">How much cash was tendered?</label>
               <input type="number" id="tendered" name="tendered" step="any" />
-              <button>PAY NOW!</button>
+              <button class="pay-now-cash">PAY NOW!</button>
             </form>
           </div>
           <div class="credit-screen hide">
@@ -59,7 +66,7 @@
               <input type="text" id="cc-expiration" name="cc-expiration" />
               <label for="cc-cvv">CVV:</label>
               <input type="text" id="cc-cvv" name="cc-cvv" />
-              <button>PAY NOW!</button>
+              <button class="pay-now-credit">PAY NOW!</button>
             </form>
           </div>
           <div class="receipt">
@@ -85,6 +92,9 @@
       </div>
       <!-- </div> -->
     </div>
+    <footer class="footer">
+      <p class="footer-text">Copyright © 2020 Cambridge, Cronin, & Dreon</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
